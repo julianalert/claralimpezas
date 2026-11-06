@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: t.meta.title,
       description: t.meta.description,
       locale: ogLocale[locale],
-      images: [{ url: "/images/clara-limpezas.jpg", width: 1920, height: 1088 }],
+      images: [{ url: "/images/clara-limpezas.jpg", width: 2688, height: 1520 }],
     },
   };
 }
