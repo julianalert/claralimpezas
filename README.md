@@ -65,5 +65,7 @@ To go live, send the request to your email/CRM in `src/actions/quote.ts` and ret
 
 ## Environment
 
-- `NEXT_PUBLIC_SITE_URL` — public URL used for canonical/OG/sitemap links (defaults to `https://claralimpezas.pt`).
+- `NEXT_PUBLIC_SITE_URL` — public URL used for canonical/OG/sitemap links (defaults to `https://www.claralimpezas.com`,
+  the address Vercel serves; `http://` and `claralimpezas.com` redirect there). If you make the bare domain primary
+  in Vercel, change this too, so canonical links never point at a redirect.
 - `GOOGLE_SITE_VERIFICATION` — optional Search Console verification code (adds the `google-site-verification` meta tag).

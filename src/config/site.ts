@@ -2,8 +2,13 @@ export const siteConfig = {
   name: "Clara",
   /** Longer brand name, used as `alternateName` in structured data so Google can tell "Clara" apart. */
   alternateName: "Clara Limpezas",
-  domain: "claralimpezas.pt",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://claralimpezas.pt",
+  /** Shown to people (footer, share image). */
+  domain: "claralimpezas.com",
+  /**
+   * Canonical origin for canonical/hreflang/OG/sitemap URLs. Must be the address the site is
+   * actually served from: Vercel redirects http:// and the bare domain to https://www.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.claralimpezas.com",
   complaintsBookUrl: "https://www.livroreclamacoes.pt",
 
   /** Browser UI colour on mobile — matches the sticky header (`--pine-deep`). */
@@ -19,7 +24,7 @@ export const siteConfig = {
    */
   business: {
     telephone: "", // e.g. "+351 912 345 678"
-    email: "", // e.g. "ola@claralimpezas.pt"
+    email: "", // e.g. "ola@claralimpezas.com"
     /** Public profiles: Google Business Profile, Instagram, Facebook, LinkedIn... */
     sameAs: [] as string[],
     /** Spoken with customers (BCP 47). Matches the "Portuguese & English" promise on the site. */
