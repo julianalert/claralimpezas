@@ -3,7 +3,7 @@ import { ArrowIcon, Spark } from "../icons";
 
 export function CtaBand({ t }: { t: Dictionary["band"] }) {
   return (
-    <section className="band" aria-label={t.label}>
+    <section className="band" aria-label={t.label} data-hide-floating-cta>
       <div className="wrap band-row">
         {/* Background sparks, same as the "A experiência Clara" card */}
         <Spark className="spark-big" />

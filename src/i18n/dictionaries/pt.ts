@@ -9,6 +9,12 @@ export const pt = {
     ogImageAlt:
       "Profissional da Clara a limpar uma mesa num apartamento luminoso em Lisboa, com o título «Serviço de limpeza de confiança em Lisboa»",
   },
+  topbar: {
+    label: "Horário e disponibilidade",
+    hours: "Apoio ao cliente: 9h–18h (segunda a sexta)",
+    availability: "Intervenções 7 dias por semana, a partir do dia seguinte",
+    cta: "Pedir orçamento",
+  },
   nav: {
     home: "Clara, início",
     label: "Navegação principal",
@@ -190,6 +196,9 @@ export const pt = {
     eyebrow: "Mais tempo para o que importa",
     title: "Volte para casa e encontre tudo impecável.",
     cta: "Pedir orçamento",
+  },
+  floating: {
+    cta: "Agende a sua limpeza",
   },
   footer: {
     label: "Rodapé",

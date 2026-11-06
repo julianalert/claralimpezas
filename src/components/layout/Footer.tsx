@@ -13,7 +13,7 @@ type Props = { locale: Locale; t: Dictionary["footer"]; nav: Dictionary["nav"] }
 
 export function Footer({ locale, t, nav }: Props) {
   return (
-    <footer>
+    <footer data-hide-floating-cta>
       <div className="wrap foot-row">
         <div className="foot-brand">
           <a href="#inicio" aria-label={siteConfig.name}>

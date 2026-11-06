@@ -10,6 +10,12 @@ export const fr: Dictionary = {
     ogImageAlt:
       "Une professionnelle de Clara nettoie une table dans un appartement lumineux à Lisbonne, avec le titre « Service de ménage de confiance à Lisbonne »",
   },
+  topbar: {
+    label: "Horaires et disponibilités",
+    hours: "Service client : 9 h – 18 h (lundi à vendredi)",
+    availability: "Interventions 7 j/7 possibles dès le lendemain",
+    cta: "Demander un devis",
+  },
   nav: {
     home: "Clara, accueil",
     label: "Navigation principale",
@@ -195,6 +201,9 @@ export const fr: Dictionary = {
     eyebrow: "Plus de temps pour l’essentiel",
     title: "Rentrez chez vous et retrouvez tout impeccable.",
     cta: "Demander un devis",
+  },
+  floating: {
+    cta: "Planifiez votre intervention",
   },
   footer: {
     label: "Pied de page",

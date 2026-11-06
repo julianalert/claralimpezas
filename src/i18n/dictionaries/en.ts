@@ -8,6 +8,12 @@ export const en: Dictionary = {
     ogImageAlt:
       "A Clara cleaner wiping a table in a bright Lisbon apartment, with the headline “Trusted Cleaning Service in Lisbon”",
   },
+  topbar: {
+    label: "Hours and availability",
+    hours: "Customer service: 9am–6pm (Monday to Friday)",
+    availability: "Cleaning 7 days a week, available from the next day",
+    cta: "Get a quote",
+  },
   nav: {
     home: "Clara, home",
     label: "Main navigation",
@@ -189,6 +195,9 @@ export const en: Dictionary = {
     eyebrow: "More time for what matters",
     title: "Come home to everything spotless.",
     cta: "Get a quote",
+  },
+  floating: {
+    cta: "Schedule your cleaning",
   },
   footer: {
     label: "Footer",

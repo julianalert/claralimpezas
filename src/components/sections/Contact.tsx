@@ -33,7 +33,7 @@ export function Contact({ t, form, services }: Props) {
   const { address, mapUrl } = siteConfig.business;
 
   return (
-    <section className="sect sect-surface" id="contacto">
+    <section className="sect sect-surface" id="contacto" data-hide-floating-cta>
       <div className="wrap contact-grid">
         <div className="contact-copy">
           <p className="eyebrow">{t.eyebrow}</p>

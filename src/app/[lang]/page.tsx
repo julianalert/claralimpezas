@@ -1,5 +1,7 @@
+import { FloatingCta } from "@/components/layout/FloatingCta";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { TopBar } from "@/components/layout/TopBar";
 import { QuoteProvider } from "@/components/quote/QuoteProvider";
 import { Contact } from "@/components/sections/Contact";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -21,6 +23,7 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homeStructuredData(locale, t)) }}
       />
+      <TopBar t={t.topbar} />
       <Header t={t.nav} />
       <QuoteProvider>
         <main>
@@ -34,6 +37,7 @@ export default async function HomePage() {
         </main>
       </QuoteProvider>
       <Footer locale={locale} t={t.footer} nav={t.nav} />
+      <FloatingCta label={t.floating.cta} />
     </>
   );
 }
