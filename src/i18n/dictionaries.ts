@@ -6,6 +6,7 @@ import type { Dictionary } from "./dictionaries/pt";
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   pt: () => import("./dictionaries/pt").then((m) => m.pt),
   en: () => import("./dictionaries/en").then((m) => m.en),
+  fr: () => import("./dictionaries/fr").then((m) => m.fr),
 };
 
 /** Current locale, read from the `[lang]` root segment. Server-only. */

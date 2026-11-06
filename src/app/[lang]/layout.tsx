@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Montserrat } from "next/font/google";
 import { siteConfig } from "@/config/site";
-import { htmlLang, locales, ogLocale } from "@/i18n/config";
+import { defaultLocale, htmlLang, localePath, locales, ogLocale } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
 import "../globals.css";
 
@@ -36,10 +36,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t.meta.title,
     description: t.meta.description,
     alternates: {
-      canonical: `/${locale}`,
+      canonical: localePath(locale),
       languages: {
-        ...Object.fromEntries(locales.map((l) => [htmlLang[l], `/${l}`])),
-        "x-default": "/pt",
+        ...Object.fromEntries(locales.map((l) => [htmlLang[l], localePath(l)])),
+        "x-default": localePath(defaultLocale),
       },
     },
     openGraph: {

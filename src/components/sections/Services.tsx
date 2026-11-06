@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import type { ServiceId } from "@/lib/services";
 import {
@@ -7,7 +8,6 @@ import {
   OfficeIcon,
   RenovationIcon,
   SofaIcon,
-  Spark,
   WindowIcon,
   type IconComponent,
 } from "../icons";
@@ -42,7 +42,12 @@ export function Services({ t }: { t: Dictionary["services"] }) {
           {services.map(({ id, Icon, tint }, i) => (
             <article className="svc" key={id}>
               <div className={`svc-visual${tint ? ` ${tint}` : ""}`}>
-                <Spark className="bigspark" />
+                <Image
+                  src={`/images/services/${id}.jpg`}
+                  alt=""
+                  fill
+                  sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 400px"
+                />
                 <span className="ic">
                   <Icon />
                 </span>

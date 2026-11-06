@@ -18,11 +18,12 @@ src/
     globals.css          all styles (design tokens at the top)
     icon.svg             favicon
     robots.ts, sitemap.ts
-  proxy.ts               redirects `/` → `/pt` or `/en` (remembers the visitor's choice)
+  proxy.ts               serves Portuguese at `/` (rewrite to app/[lang]), redirects `/pt` → `/`
   i18n/
-    config.ts            locales (pt default, en)
+    config.ts            locales (pt = main site at `/`, en, fr)
     dictionaries/pt.ts   Portuguese copy — the source of truth for the shape
     dictionaries/en.ts   English copy (TypeScript errors if a key is missing)
+    dictionaries/fr.ts   French copy
   components/
     layout/              Header (mobile menu), LanguageSwitcher, Footer
     sections/            Hero, TrustBar, Services, WhyClara, HowItWorks, Contact, CtaBand
@@ -30,12 +31,13 @@ src/
     icons.tsx            inline SVG icons + Clara spark
   actions/quote.ts       server action that receives quote requests
   lib/                   services list, quote validation (shared client/server)
-public/images/           static images (hero: clara-limpezas.jpg)
+public/images/           static images (hero: clara-limpezas.jpg, services/<id>.jpg)
 ```
 
 ## Languages
 
-URLs are `/pt` and `/en`. All copy lives in `src/i18n/dictionaries/`. Server components read it with
+Portuguese is the main site at `/`; English is at `/en` and French at `/fr`.
+All copy lives in `src/i18n/dictionaries/`. Server components read it with
 `getDictionary()`; client components receive the slice they need as props.
 
 ## Quote form
