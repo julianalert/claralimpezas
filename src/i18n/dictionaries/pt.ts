@@ -3,9 +3,11 @@
 
 export const pt = {
   meta: {
-    title: "Clara — Limpezas Profissionais em Lisboa",
+    title: "Empresa de Limpezas em Lisboa — Casas e Escritórios | Clara",
     description:
-      "Clara — limpezas profissionais em Lisboa. Limpeza doméstica, escritórios, pós-obra, vidros, estofos e alojamento local.",
+      "Limpezas profissionais em Lisboa e arredores: casas, escritórios, pós-obra, vidros, sofás e alojamento local. Pontuais ou regulares. Orçamento sem compromisso.",
+    ogImageAlt:
+      "Profissional da Clara a limpar uma mesa num apartamento luminoso em Lisboa, com o título «Serviço de limpeza de confiança em Lisboa»",
   },
   nav: {
     home: "Clara, início",
@@ -19,7 +21,7 @@ export const pt = {
   },
   hero: {
     imageAlt:
-      "Profissional da Clara a aspirar uma sala luminosa em Lisboa, com varandas abertas sobre os telhados e o Tejo",
+      "Profissional da Clara a limpar a mesa de jantar de um apartamento luminoso em Lisboa, com a janela aberta sobre os telhados e o Tejo",
     eyebrow: "A sua casa, impecável.",
     title: "Serviço de limpeza de confiança em Lisboa",
     intro:
@@ -53,29 +55,41 @@ export const pt = {
     items: {
       domestica: {
         name: "Limpeza doméstica",
+        imageAlt:
+          "Profissional da Clara a tirar o pó das prateleiras de uma sala em Lisboa",
         description:
           "Limpezas pontuais ou regulares para uma casa sempre acolhedora.",
       },
       escritorios: {
         name: "Limpeza de escritórios",
+        imageAlt:
+          "Profissional da Clara a limpar a mesa de reuniões de um escritório com vista sobre Lisboa",
         description: "Espaços de trabalho organizados, limpos e agradáveis.",
       },
       posobra: {
         name: "Limpeza pós-obra",
+        imageAlt:
+          "Profissional da Clara num escadote a limpar o aro de uma porta numa casa acabada de renovar",
         description:
           "A limpeza final depois de obras, renovações ou mudanças.",
       },
       vidros: {
         name: "Limpeza de vidros",
+        imageAlt:
+          "Profissional da Clara a limpar uma janela com rodo, com vista sobre o Tejo e a Ponte 25 de Abril",
         description: "Janelas e superfícies envidraçadas sem marcas.",
       },
       estofos: {
         name: "Sofás e estofos",
+        imageAlt:
+          "Profissional da Clara a limpar um cadeirão com uma máquina de lavar estofos",
         description:
           "Cuidados específicos para têxteis e superfícies estofadas.",
       },
       alojamento: {
         name: "Alojamento local",
+        imageAlt:
+          "Profissional da Clara a fazer a cama de um alojamento local em Lisboa, com toalhas dobradas para os próximos hóspedes",
         description: "Limpezas entre estadias para receber cada novo hóspede.",
       },
     },

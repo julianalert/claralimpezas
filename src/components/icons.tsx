@@ -12,7 +12,7 @@ function Icon({ children }: { children: ReactNode }) {
 
 export type IconComponent = () => ReactNode;
 
-const SPARK_PATH =
+export const SPARK_PATH =
   "M20 0C23.6 13.4 26.6 16.4 40 20 26.6 23.6 23.6 26.6 20 40 16.4 26.6 13.4 23.6 0 20 13.4 16.4 16.4 13.4 20 0Z";
 
 /** Four-point spark from the logo. Fill is set by CSS on the svg's class. */

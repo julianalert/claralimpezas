@@ -4,9 +4,11 @@ import type { Dictionary } from "./pt";
 
 export const fr: Dictionary = {
   meta: {
-    title: "Clara — Ménage professionnel à Lisbonne",
+    title: "Ménage et nettoyage à Lisbonne — Maisons et bureaux | Clara",
     description:
-      "Clara — ménage professionnel à Lisbonne. Ménage à domicile, bureaux, fin de chantier, vitres, canapés et locations saisonnières.",
+      "Ménage professionnel à Lisbonne et alentours : maisons, bureaux, fin de chantier, vitres, canapés et locations saisonnières. Devis sans engagement.",
+    ogImageAlt:
+      "Une professionnelle de Clara nettoie une table dans un appartement lumineux à Lisbonne, avec le titre « Service de ménage de confiance à Lisbonne »",
   },
   nav: {
     home: "Clara, accueil",
@@ -20,7 +22,7 @@ export const fr: Dictionary = {
   },
   hero: {
     imageAlt:
-      "Une professionnelle de Clara passe l’aspirateur dans un salon lumineux à Lisbonne, fenêtres ouvertes sur les toits et le Tage",
+      "Une professionnelle de Clara essuie la table de la salle à manger d’un appartement lumineux à Lisbonne, fenêtre ouverte sur les toits et le Tage",
     eyebrow: "Votre maison, impeccable.",
     title: "Service de ménage de confiance à Lisbonne",
     intro:
@@ -57,29 +59,41 @@ export const fr: Dictionary = {
     items: {
       domestica: {
         name: "Ménage à domicile",
+        imageAlt:
+          "Une professionnelle de Clara dépoussière les étagères d’un salon à Lisbonne",
         description:
           "Ménage ponctuel ou régulier pour une maison toujours accueillante.",
       },
       escritorios: {
         name: "Nettoyage de bureaux",
+        imageAlt:
+          "Une professionnelle de Clara nettoie la table d’une salle de réunion dans des bureaux avec vue sur Lisbonne",
         description: "Des espaces de travail organisés, propres et agréables.",
       },
       posobra: {
         name: "Nettoyage de fin de chantier",
+        imageAlt:
+          "Une professionnelle de Clara sur un escabeau nettoie l’encadrement d’une porte dans un appartement fraîchement rénové",
         description:
           "Le nettoyage final après des travaux, une rénovation ou un déménagement.",
       },
       vidros: {
         name: "Nettoyage des vitres",
+        imageAlt:
+          "Une professionnelle de Clara nettoie une fenêtre à la raclette, avec vue sur le Tage et le pont du 25-Avril",
         description: "Fenêtres et surfaces vitrées sans traces.",
       },
       estofos: {
         name: "Canapés et tissus d’ameublement",
+        imageAlt:
+          "Une professionnelle de Clara nettoie un fauteuil avec un injecteur-extracteur",
         description:
           "Un soin spécifique pour les textiles et les surfaces rembourrées.",
       },
       alojamento: {
         name: "Locations saisonnières",
+        imageAlt:
+          "Une professionnelle de Clara fait le lit d’une location saisonnière à Lisbonne, serviettes pliées pour les prochains voyageurs",
         description:
           "Le ménage entre deux séjours, pour accueillir chaque nouveau voyageur.",
       },

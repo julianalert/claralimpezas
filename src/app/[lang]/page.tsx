@@ -9,6 +9,7 @@ import { Services } from "@/components/sections/Services";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { WhyClara } from "@/components/sections/WhyClara";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
+import { homeStructuredData, jsonLd } from "@/lib/structured-data";
 
 export default async function HomePage() {
   const locale = await getLocale();
@@ -16,6 +17,10 @@ export default async function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(homeStructuredData(locale, t)) }}
+      />
       <Header t={t.nav} />
       <QuoteProvider>
         <main>

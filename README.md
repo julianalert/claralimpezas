@@ -13,10 +13,11 @@ npm run lint
 ```
 src/
   app/
-    [lang]/layout.tsx    root layout: <html lang>, fonts, SEO metadata
-    [lang]/page.tsx      home page — composes the sections below
+    [lang]/layout.tsx    root layout: <html lang>, fonts, SEO metadata (title, hreflang, OG, robots)
+    [lang]/page.tsx      home page — composes the sections below, plus JSON-LD
+    [lang]/opengraph-image.tsx  per-language share image (JPEG, built at build time)
     globals.css          all styles (design tokens at the top)
-    icon.svg             favicon
+    icon.svg             favicon; apple-icon.png is the same drawing for iOS
     robots.ts, sitemap.ts
   proxy.ts               language routing: browser language / saved choice → `/`, `/en`, `/fr`
   i18n/
@@ -30,7 +31,7 @@ src/
     quote/               QuoteProvider (shared form state), QuoteForm, ServiceQuoteLink
     icons.tsx            inline SVG icons + Clara spark
   actions/quote.ts       server action that receives quote requests
-  lib/                   services list, quote validation (shared client/server)
+  lib/                   services list, quote validation, structured data, OG image helpers
 public/images/           static images (hero: clara-limpezas.jpg, services/<id>.jpg)
 ```
 
@@ -49,6 +50,20 @@ All copy lives in `src/i18n/dictionaries/`. Server components read it with
 Delivery isn't wired up yet: the action returns `demo` and the form shows a demo notice.
 To go live, send the request to your email/CRM in `src/actions/quote.ts` and return `{ status: "success" }`.
 
+## SEO
+
+- Titles, descriptions and the share-image alt text are in each dictionary's `meta` block; image alt texts sit
+  next to the copy they illustrate (`hero.imageAlt`, `services.items.<id>.imageAlt`).
+- Every language page has its own canonical, `hreflang` links to the others (+ `x-default` → `/`), localized
+  Open Graph / Twitter tags and its own share image (`/<lang>/opengraph-image/share`, the hero photo with the
+  translated headline). The sitemap lists the same hreflang set and the page photos.
+- `src/lib/structured-data.ts` outputs a LocalBusiness + WebSite + WebPage graph with the six services.
+  Fill in `siteConfig.business` (phone, email, Google Business Profile / social links) as soon as they exist —
+  they are left out while empty.
+- After changing the copy or photos, check a page with the [Rich Results Test](https://search.google.com/test/rich-results)
+  and a share preview (e.g. [opengraph.xyz](https://www.opengraph.xyz)).
+
 ## Environment
 
 - `NEXT_PUBLIC_SITE_URL` — public URL used for canonical/OG/sitemap links (defaults to `https://claralimpezas.pt`).
+- `GOOGLE_SITE_VERIFICATION` — optional Search Console verification code (adds the `google-site-verification` meta tag).

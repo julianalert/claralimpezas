@@ -72,6 +72,8 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals, API routes and any file with an extension (images, icon.svg, robots.txt...).
-  matcher: ["/((?!api|_next/static|_next/image|.*\\..*).*)"],
+  // Skip Next internals, API routes, any file with an extension (images, icon.svg, robots.txt...)
+  // and the share images, whose URLs have no extension: /<lang>/opengraph-image/...
+  // (the Portuguese one must stay at /pt/... and must not be redirected by browser language).
+  matcher: ["/((?!api|_next/static|_next/image|.*opengraph-image|.*\\..*).*)"],
 };

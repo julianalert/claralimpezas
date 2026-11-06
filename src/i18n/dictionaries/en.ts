@@ -2,9 +2,11 @@ import type { Dictionary } from "./pt";
 
 export const en: Dictionary = {
   meta: {
-    title: "Clara — Professional Cleaning in Lisbon",
+    title: "Cleaning Services in Lisbon — Homes & Offices | Clara",
     description:
-      "Clara — professional cleaning in Lisbon. Home, office, post-construction, window, upholstery and short-term rental cleaning.",
+      "Professional cleaning in Lisbon and nearby: homes, offices, post-construction, windows, sofas and short-term rentals. One-off or regular. No-obligation quote.",
+    ogImageAlt:
+      "A Clara cleaner wiping a table in a bright Lisbon apartment, with the headline “Trusted Cleaning Service in Lisbon”",
   },
   nav: {
     home: "Clara, home",
@@ -18,7 +20,7 @@ export const en: Dictionary = {
   },
   hero: {
     imageAlt:
-      "A Clara cleaner vacuuming a bright Lisbon living room, with balcony doors open onto the rooftops and the Tagus",
+      "A Clara cleaner wiping down the dining table in a bright Lisbon apartment, with the window open onto the rooftops and the Tagus",
     eyebrow: "Your home, spotless.",
     title: "Trusted Cleaning Service in Lisbon",
     intro:
@@ -54,27 +56,39 @@ export const en: Dictionary = {
     items: {
       domestica: {
         name: "Home cleaning",
+        imageAlt:
+          "A Clara cleaner dusting living-room shelves in a Lisbon home",
         description: "One-off or regular cleaning to keep your home welcoming.",
       },
       escritorios: {
         name: "Office cleaning",
+        imageAlt:
+          "A Clara cleaner wiping down a meeting-room table in an office overlooking Lisbon",
         description: "Clean, comfortable and well-kept workspaces.",
       },
       posobra: {
         name: "Post-construction cleaning",
+        imageAlt:
+          "A Clara cleaner on a step ladder wiping a door frame in a freshly renovated flat",
         description:
           "The final clean after renovations, building work or a move.",
       },
       vidros: {
         name: "Window cleaning",
+        imageAlt:
+          "A Clara cleaner squeegeeing a window overlooking the Tagus and the 25 de Abril Bridge",
         description: "Streak-free windows and glass surfaces.",
       },
       estofos: {
         name: "Sofas & upholstery",
+        imageAlt:
+          "A Clara cleaner deep-cleaning an armchair with an upholstery extractor",
         description: "Specialised care for textiles and upholstered surfaces.",
       },
       alojamento: {
         name: "Short-term rentals",
+        imageAlt:
+          "A Clara cleaner making the bed in a Lisbon short-term rental, with fresh towels laid out for the next guests",
         description:
           "Turnover cleaning between stays, ready for every new guest.",
       },

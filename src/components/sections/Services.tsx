@@ -26,7 +26,7 @@ export function Services({ t }: { t: Dictionary["services"] }) {
               <div className="svc-media">
                 <Image
                   src={`/images/services/${id}.jpg`}
-                  alt=""
+                  alt={t.items[id].imageAlt}
                   fill
                   quality={90}
                   sizes="(max-width: 767px) 100vw, (max-width: 860px) 50vw, 400px"
