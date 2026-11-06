@@ -147,6 +147,15 @@ export const en: Dictionary = {
       },
     },
   },
+  local: {
+    eyebrow: "A Lisbon company",
+    title: "Close to you, all over Lisbon.",
+    description:
+      "Clara is a Lisbon-based cleaning company. We come to homes, offices and holiday rentals across Lisbon and nearby, 7 days a week, from the next day.",
+    cta: "Get a quote",
+    imageAlt:
+      "Clara’s white van, with its logo and list of services, parked on a cobbled Lisbon street next to bougainvillea and azulejo tiles",
+  },
   contact: {
     eyebrow: "Get a quote",
     title: ["Ready to make", "everything clearer?"],
@@ -198,6 +207,10 @@ export const en: Dictionary = {
   },
   floating: {
     cta: "Schedule your cleaning",
+  },
+  legal: {
+    close: "Close",
+    draft: "Provisional version: this text is still being reviewed.",
   },
   footer: {
     label: "Footer",

@@ -205,6 +205,20 @@ section { scroll-margin-top: 80px; }
 .step h3 { font-size: 20px; line-height: 28px; font-weight: 600; }
 .step p { margin-top: 12px; font-size: 14px; line-height: 1.625; color: var(--muted); }
 
+/* local presence (dark brand band with the Clara van) */
+.local { overflow: hidden; background: var(--pine-deep); color: #fff; }
+.local-inner { position: relative; }
+.local-inner > :not(svg) { position: relative; }
+.local .spark-small { position: absolute; right: 64px; top: -40px; width: 40px; height: 40px; fill: var(--mint); opacity: 0.5; }
+.local .eyebrow { color: rgba(255, 255, 255, 0.6); font-weight: 400; }
+.local .h2 { color: #fff; }
+.local .lead { max-width: 36rem; color: rgba(255, 255, 255, 0.7); }
+.local-media {
+  position: relative; margin-top: 32px; aspect-ratio: 2.2 / 1; overflow: hidden;
+  border-radius: var(--radius); background: var(--pine); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+.local-media img { object-fit: cover; object-position: 50% 60%; }
+
 /* contact */
 .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start; }
 .contact-copy { position: sticky; top: 112px; }
@@ -285,6 +299,42 @@ footer { background: #fff; border-top: 1px solid var(--border); }
   .fab, .fab svg.i { transition: none; }
 }
 
+/* legal modals (privacy, terms) — native <dialog>, opened from the footer links */
+html:has(.legal[open]) { overflow: hidden; }
+.legal {
+  width: min(720px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 0;
+  border-radius: var(--radius); background: #fff; color: var(--ink); overflow: hidden;
+  box-shadow: 0 24px 80px rgba(5, 47, 41, 0.35);
+}
+.legal[open] { display: flex; flex-direction: column; }
+.legal::backdrop { background: rgba(5, 47, 41, 0.6); }
+.legal-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 16px 16px 28px; border-bottom: 1px solid var(--border);
+}
+.legal-head h2 { font-size: 22px; line-height: 28px; font-weight: 600; }
+.legal-close {
+  flex: none; display: grid; place-items: center; width: 40px; height: 40px; border: 0;
+  border-radius: var(--radius); background: var(--sand); color: var(--ink); transition: background-color 0.15s;
+}
+.legal-close:hover { background: var(--light-mint); }
+.legal-close:focus-visible { outline: 2px solid var(--pine); outline-offset: 2px; }
+.legal-body {
+  overflow-y: auto; overscroll-behavior: contain; padding: 24px 28px 32px;
+  font-size: 14px; line-height: 1.65; color: var(--muted);
+}
+.legal-draft {
+  margin-bottom: 16px; padding: 10px 14px; border-radius: var(--radius);
+  background: #fdf3dc; color: #6b4e0e; font-weight: 500;
+}
+.legal-updated { font-size: 12px; line-height: 16px; color: var(--muted); }
+.legal-body h3 { margin: 24px 0 8px; font-size: 16px; line-height: 24px; font-weight: 600; color: var(--ink); }
+.legal-body p + p, .legal-body ul + p, .legal-body p + ul { margin-top: 8px; }
+.legal-body ul { margin-block: 0; padding-left: 20px; }
+.legal-body li + li { margin-top: 4px; }
+.legal-body a { color: var(--pine); text-decoration: underline; text-decoration-color: var(--input); text-underline-offset: 3px; }
+.legal-body a:hover { text-decoration-color: currentColor; }
+
 /* ---------- responsive ---------- */
 @media (min-width: 1536px) {
   .hero-inner { min-height: 640px; }
@@ -345,6 +395,13 @@ footer { background: #fff; border-top: 1px solid var(--border); }
   .form { padding: 24px; }
   .fields { grid-template-columns: 1fr; }
   .band-row { padding-block: 48px; }
+  .local .btn { width: 100%; }
+  .legal { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .legal-head { padding: 12px 12px 12px 20px; }
+  .legal-head h2 { font-size: 18px; line-height: 24px; }
+  .legal-body { padding: 20px 20px 28px; }
+  .local .spark-small { width: 32px; height: 32px; right: 24px; top: -32px; }
+  .local-media { aspect-ratio: 2 / 1; margin-inline: -24px; border-radius: 0; }
   .band .btn { width: 100%; }
   .band .spark-big { width: 240px; height: 240px; right: -70px; top: -70px; margin-top: 0; }
   .band .spark-small { width: 32px; height: 32px; right: 24px; top: 16px; }

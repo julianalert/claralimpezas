@@ -148,6 +148,15 @@ export const pt = {
       },
     },
   },
+  local: {
+    eyebrow: "Uma empresa de Lisboa",
+    title: "Perto de si, em toda a Lisboa.",
+    description:
+      "A Clara é uma empresa de limpezas de Lisboa. Deslocamo-nos a casas, escritórios e alojamentos locais em Lisboa e arredores, 7 dias por semana e a partir do dia seguinte.",
+    cta: "Pedir orçamento",
+    imageAlt:
+      "Carrinha branca da Clara, com o logótipo e a lista de serviços, estacionada numa rua calcetada de Lisboa junto a uma buganvília e a azulejos",
+  },
   contact: {
     eyebrow: "Pedir orçamento",
     title: ["Vamos deixar", "tudo mais claro?"],
@@ -199,6 +208,10 @@ export const pt = {
   },
   floating: {
     cta: "Agende a sua limpeza",
+  },
+  legal: {
+    close: "Fechar",
+    draft: "Versão provisória: este texto ainda está a ser revisto.",
   },
   footer: {
     label: "Rodapé",

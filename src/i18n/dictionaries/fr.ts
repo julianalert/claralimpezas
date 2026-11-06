@@ -153,6 +153,15 @@ export const fr: Dictionary = {
       },
     },
   },
+  local: {
+    eyebrow: "Une entreprise lisboète",
+    title: "Près de chez vous, partout à Lisbonne.",
+    description:
+      "Clara est une entreprise de ménage basée à Lisbonne. Nous intervenons dans les maisons, les bureaux et les locations saisonnières de Lisbonne et ses alentours, 7 j/7 et dès le lendemain.",
+    cta: "Demander un devis",
+    imageAlt:
+      "La camionnette blanche de Clara, avec son logo et la liste des services, garée dans une rue pavée de Lisbonne près d’un bougainvillier et d’azulejos",
+  },
   contact: {
     eyebrow: "Demander un devis",
     title: ["Et si tout devenait", "plus clair ?"],
@@ -204,6 +213,10 @@ export const fr: Dictionary = {
   },
   floating: {
     cta: "Planifiez votre intervention",
+  },
+  legal: {
+    close: "Fermer",
+    draft: "Version provisoire : ce texte est encore en cours de relecture.",
   },
   footer: {
     label: "Pied de page",

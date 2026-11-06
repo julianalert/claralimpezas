@@ -18,6 +18,18 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.claralimpezas.com",
   complaintsBookUrl: "https://www.livroreclamacoes.pt",
 
+  /**
+   * Quoted in the privacy policy and terms (src/content/legal, footer modals), with the address and
+   * e-mail from `business` below. Use the legal name and NIF exactly as registered; an empty field
+   * is left out of the texts. Set `reviewed` to true once the texts have been checked: it removes the
+   * "provisional version" notice.
+   */
+  legal: {
+    entityName: "Clara Limpezas",
+    nif: "", // e.g. "123456789"
+    reviewed: false,
+  },
+
   /** Browser UI colour on mobile — matches the sticky header (`--pine-deep`). */
   themeColor: "#052f29",
 

@@ -5,7 +5,7 @@ import { ArrowIcon, CalendarCheckIcon } from "../icons";
 
 /**
  * Floating button in the bottom-right corner that jumps to the quote form. It steps aside while an
- * element marked `data-hide-floating-cta` (the form section, the CTA band, the footer) is on screen,
+ * element marked `data-hide-floating-cta` (the form, the dark CTA sections, the footer) is on screen,
  * so it never covers the form or another call to action.
  */
 export function FloatingCta({ label }: { label: string }) {

@@ -24,7 +24,7 @@ export function Footer({ locale, t, nav }: Props) {
           <a href="#servicos">{nav.services}</a>
           <a href="#como-funciona">{nav.how}</a>
           <a href="#contacto">{nav.contact}</a>
-          {/* TODO: point to real privacy / terms pages once they exist */}
+          {/* Open the privacy / terms modals (LegalDialog, opened by the URL hash) */}
           <a href="#privacidade">{t.privacy}</a>
           <a href="#termos">{t.terms}</a>
           <a href={siteConfig.complaintsBookUrl} target="_blank" rel="noopener">

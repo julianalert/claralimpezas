@@ -18,6 +18,7 @@ export function homeStructuredData(locale: Locale, t: Dictionary) {
     page: `${page}#webpage`,
   };
   const heroImage = absolute("/images/clara-limpezas.jpg");
+  const vanImage = absolute("/images/clara-limpezas-lisbon.png");
   const { telephone, email, sameAs, languages, areaServed, address, geo, openingHours, mapUrl } =
     siteConfig.business;
 
@@ -29,7 +30,7 @@ export function homeStructuredData(locale: Locale, t: Dictionary) {
     description: t.meta.description,
     url: site,
     logo: absolute("/icon.svg"),
-    image: [heroImage, ...serviceIds.map((id) => absolute(`/images/services/${id}.jpg`))],
+    image: [heroImage, vanImage, ...serviceIds.map((id) => absolute(`/images/services/${id}.jpg`))],
     address: { "@type": "PostalAddress", ...address },
     geo: { "@type": "GeoCoordinates", ...geo },
     hasMap: mapUrl,
