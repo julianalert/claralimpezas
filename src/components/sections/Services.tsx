@@ -46,6 +46,7 @@ export function Services({ t }: { t: Dictionary["services"] }) {
                   src={`/images/services/${id}.jpg`}
                   alt=""
                   fill
+                  quality={90}
                   sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 400px"
                 />
                 <span className="ic">
