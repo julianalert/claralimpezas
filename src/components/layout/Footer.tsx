@@ -19,7 +19,6 @@ export function Footer({ locale, t, nav }: Props) {
           <a href="#inicio" aria-label={siteConfig.name}>
             <WordmarkText variant="foot" />
           </a>
-          <span>{t.tagline}</span>
         </div>
         <nav className="foot-links" aria-label={t.label}>
           <a href="#servicos">{nav.services}</a>

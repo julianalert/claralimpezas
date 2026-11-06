@@ -191,7 +191,6 @@ export const pt = {
   },
   footer: {
     label: "Rodapé",
-    tagline: "A sua casa, impecável. · Lisboa, Portugal",
     privacy: "Privacidade",
     terms: "Termos",
     complaints: "Livro de Reclamações",

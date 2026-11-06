@@ -190,7 +190,6 @@ export const en: Dictionary = {
   },
   footer: {
     label: "Footer",
-    tagline: "Your home, spotless. · Lisbon, Portugal",
     privacy: "Privacy",
     terms: "Terms",
     complaints: "Complaints Book",

@@ -196,7 +196,6 @@ export const fr: Dictionary = {
   },
   footer: {
     label: "Pied de page",
-    tagline: "Votre maison, impeccable. · Lisbonne, Portugal",
     privacy: "Confidentialité",
     terms: "Conditions",
     complaints: "Livre de réclamations",
