@@ -9,24 +9,21 @@ export const pt = {
   },
   nav: {
     home: "Clara, início",
-    city: "LISBOA",
     label: "Navegação principal",
-    services: "Serviços",
+    services: "Os nossos serviços",
     why: "Porquê a Clara?",
     how: "Como funciona",
     contact: "Contactos",
     quote: "Pedir orçamento",
-    menu: "Menu",
     language: "Idioma / Language",
   },
   hero: {
     imageAlt:
       "Profissional da Clara a aspirar uma sala luminosa em Lisboa, com varandas abertas sobre os telhados e o Tejo",
-    chip: "Mais tempo para o que importa.",
-    eyebrow: "Limpezas profissionais em Lisboa",
-    title: { lead: "A sua casa,", highlight: "impecável." },
+    eyebrow: "A sua casa, impecável.",
+    title: "Serviço de limpeza de confiança em Lisboa",
     intro:
-      "Serviços de limpeza pensados para simplificar o seu dia a dia. Para casas, empresas e espaços que merecem estar no seu melhor.",
+      "Limpeza regular, limpeza pontual, limpeza urgente. Para casas, empresas e espaços que merecem estar no seu melhor.",
     cta: "Pedir orçamento",
     services: "Ver serviços",
     note: "Orçamento sem compromisso, ajustado ao seu espaço.",

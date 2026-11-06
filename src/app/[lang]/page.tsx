@@ -16,7 +16,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Header locale={locale} t={t.nav} />
+      <Header t={t.nav} />
       <QuoteProvider>
         <main>
           <Hero t={t.hero} />
@@ -28,7 +28,7 @@ export default async function HomePage() {
           <CtaBand t={t.band} />
         </main>
       </QuoteProvider>
-      <Footer t={t.footer} nav={t.nav} />
+      <Footer locale={locale} t={t.footer} nav={t.nav} />
     </>
   );
 }

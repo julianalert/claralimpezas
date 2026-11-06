@@ -95,7 +95,7 @@ export function QuoteForm({ t, serviceNames }: Props) {
         </div>
       </div>
 
-      <button type="submit" className="btn btn-solid" disabled={pending}>
+      <button type="submit" className="btn btn-primary" disabled={pending}>
         <span>{pending ? t.sending : t.submit}</span>
         <ArrowIcon />
       </button>

@@ -4,6 +4,9 @@ export type Locale = (typeof locales)[number];
 /** Main language. Served at the site root (`/`); the others live under `/en`, `/fr`. */
 export const defaultLocale: Locale = "pt";
 
+/** Cookie set when the visitor picks a language; it wins over the browser language. */
+export const LOCALE_COOKIE = "NEXT_LOCALE";
+
 /** Value for the `<html lang>` attribute and hreflang alternates. */
 export const htmlLang: Record<Locale, string> = {
   pt: "pt-PT",

@@ -22,9 +22,7 @@ export function TrustBar({ t }: { t: Dictionary["trust"] }) {
       <div className="wrap trust-row">
         {items.map(({ key, Icon }) => (
           <div className="trust-cell" key={key}>
-            <span className="ic">
-              <Icon />
-            </span>
+            <Icon />
             <div>
               <strong>{t.items[key].title}</strong>
               <span>{t.items[key].text}</span>

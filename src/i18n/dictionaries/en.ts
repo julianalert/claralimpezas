@@ -8,24 +8,21 @@ export const en: Dictionary = {
   },
   nav: {
     home: "Clara, home",
-    city: "LISBOA",
     label: "Main navigation",
-    services: "Services",
+    services: "Our services",
     why: "Why Clara?",
     how: "How it works",
     contact: "Contact",
     quote: "Get a quote",
-    menu: "Menu",
     language: "Idioma / Language",
   },
   hero: {
     imageAlt:
       "A Clara cleaner vacuuming a bright Lisbon living room, with balcony doors open onto the rooftops and the Tagus",
-    chip: "More time for what matters.",
-    eyebrow: "Professional cleaning in Lisbon",
-    title: { lead: "Your home,", highlight: "spotless." },
+    eyebrow: "Your home, spotless.",
+    title: "Trusted Cleaning Service in Lisbon",
     intro:
-      "Cleaning services designed to make everyday life easier. For homes, offices and spaces that deserve to look their best.",
+      "Regular cleaning, one-off cleaning, urgent cleaning. For homes, offices and spaces that deserve to look their best.",
     cta: "Get a quote",
     services: "Explore services",
     note: "No-obligation quote, tailored to your space.",

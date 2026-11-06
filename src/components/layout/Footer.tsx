@@ -1,15 +1,17 @@
 import { siteConfig } from "@/config/site";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { WordmarkText } from "../Wordmark";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 async function CurrentYear() {
   "use cache";
   return new Date().getFullYear();
 }
 
-type Props = { t: Dictionary["footer"]; nav: Dictionary["nav"] };
+type Props = { locale: Locale; t: Dictionary["footer"]; nav: Dictionary["nav"] };
 
-export function Footer({ t, nav }: Props) {
+export function Footer({ locale, t, nav }: Props) {
   return (
     <footer>
       <div className="wrap foot-row">
@@ -33,9 +35,9 @@ export function Footer({ t, nav }: Props) {
       </div>
       <div className="wrap foot-base">
         <span>
-          © <CurrentYear /> {siteConfig.name} — {siteConfig.domain}
+          © <CurrentYear /> {siteConfig.name} — {siteConfig.domain} · {t.made}
         </span>
-        <span>{t.made}</span>
+        <LanguageSwitcher locale={locale} label={nav.language} />
       </div>
     </footer>
   );

@@ -11,22 +11,22 @@ const steps: { key: Step; Icon: IconComponent }[] = [
 
 export function HowItWorks({ t }: { t: Dictionary["how"] }) {
   return (
-    <section className="sect steps" id="como-funciona">
+    <section className="sect sect-sand" id="como-funciona">
       <div className="wrap">
         <div className="sect-head">
           <div>
             <p className="eyebrow">{t.eyebrow}</p>
-            <h2 className="head h2">{t.title}</h2>
+            <h2 className="h2">{t.title}</h2>
+            <p className="lead">{t.description}</p>
           </div>
-          <p className="lead steps-desc">{t.description}</p>
         </div>
 
         <div className="steps-grid">
           {steps.map(({ key, Icon }, i) => (
             <div className="step" key={key}>
               <div className="step-top">
-                <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
-                <span className="ic">
+                <span className="mono">{String(i + 1).padStart(2, "0")} / CLARA</span>
+                <span className="tile">
                   <Icon />
                 </span>
               </div>

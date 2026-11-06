@@ -24,18 +24,18 @@ export function Contact({ t, form, services }: Props) {
   ) as Record<ServiceId, string>;
 
   return (
-    <section className="sect contact" id="contacto">
+    <section className="sect sect-surface" id="contacto">
       <div className="wrap contact-grid">
         <div className="contact-copy">
           <p className="eyebrow">{t.eyebrow}</p>
-          <h2 className="head h2">
+          <h2 className="h2">
             <Lines lines={t.title} />
           </h2>
           <p className="lead">{t.description}</p>
           <div className="points">
             {points.map(({ key, Icon }) => (
               <div key={key}>
-                <span className="ic">
+                <span className="tile">
                   <Icon />
                 </span>
                 <span>{t.points[key]}</span>

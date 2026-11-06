@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Montserrat } from "next/font/google";
+import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { defaultLocale, htmlLang, localePath, locales, ogLocale } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
 import "../globals.css";
 
-const inter = Inter({
+// Site font (variable, 400–900).
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
+  variable: "--font-archivo",
 });
 
-const montserrat = Montserrat({
+// Only used for the "clara." wordmark, to keep the logo identical.
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-montserrat",
+  weight: ["800"],
+  variable: "--font-inter",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: ["400"],
   variable: "--font-jetbrains-mono",
 });
 
@@ -60,7 +61,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
     <html
       lang={htmlLang[locale]}
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${montserrat.variable} ${jetbrainsMono.variable}`}
+      className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>
     </html>

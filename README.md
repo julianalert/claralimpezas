@@ -18,7 +18,7 @@ src/
     globals.css          all styles (design tokens at the top)
     icon.svg             favicon
     robots.ts, sitemap.ts
-  proxy.ts               serves Portuguese at `/` (rewrite to app/[lang]), redirects `/pt` → `/`
+  proxy.ts               language routing: browser language / saved choice → `/`, `/en`, `/fr`
   i18n/
     config.ts            locales (pt = main site at `/`, en, fr)
     dictionaries/pt.ts   Portuguese copy — the source of truth for the shape
@@ -37,6 +37,9 @@ public/images/           static images (hero: clara-limpezas.jpg, services/<id>.
 ## Languages
 
 Portuguese is the main site at `/`; English is at `/en` and French at `/fr`.
+On `/`, `src/proxy.ts` sends visitors to their browser language (fr → `/fr`, en and other
+unsupported languages → `/en`, pt or no language header → stays on `/`). Picking a language in the
+footer sets the `NEXT_LOCALE` cookie, which wins over the browser language.
 All copy lives in `src/i18n/dictionaries/`. Server components read it with
 `getDictionary()`; client components receive the slice they need as props.
 

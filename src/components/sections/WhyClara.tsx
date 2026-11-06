@@ -19,17 +19,17 @@ const features: { key: Feature; Icon: IconComponent }[] = [
 
 export function WhyClara({ t }: { t: Dictionary["why"] }) {
   return (
-    <section className="sect why" id="porque">
+    <section className="sect sect-surface" id="porque">
       <div className="wrap why-grid">
         <div className="why-card">
-          <Spark className="huge" />
-          <Spark className="huge2" />
+          <Spark className="spark-big" />
+          <Spark className="spark-small" />
           <p className="eyebrow">{t.card.eyebrow}</p>
-          <h2 className="head">
+          <h2>
             <Lines lines={t.card.title} />
           </h2>
           <p>{t.card.description}</p>
-          <a className="btn" href="#contacto">
+          <a className="btn btn-mint" href="#contacto">
             <span>{t.card.cta}</span>
             <ArrowIcon />
           </a>
@@ -37,14 +37,14 @@ export function WhyClara({ t }: { t: Dictionary["why"] }) {
 
         <div className="why-copy">
           <p className="eyebrow">{t.eyebrow}</p>
-          <h2 className="head h2">
+          <h2 className="h2">
             <Lines lines={t.title} />
           </h2>
           <p className="lead">{t.description}</p>
           <div className="features">
             {features.map(({ key, Icon }) => (
               <div className="feature" key={key}>
-                <span className="ic">
+                <span className="tile">
                   <Icon />
                 </span>
                 <div>

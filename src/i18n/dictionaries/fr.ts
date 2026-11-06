@@ -10,24 +10,21 @@ export const fr: Dictionary = {
   },
   nav: {
     home: "Clara, accueil",
-    city: "LISBOA",
     label: "Navigation principale",
-    services: "Services",
+    services: "Nos services",
     why: "Pourquoi Clara ?",
     how: "Comment ça marche",
     contact: "Contact",
     quote: "Demander un devis",
-    menu: "Menu",
     language: "Langue / Language",
   },
   hero: {
     imageAlt:
       "Une professionnelle de Clara passe l’aspirateur dans un salon lumineux à Lisbonne, fenêtres ouvertes sur les toits et le Tage",
-    chip: "Plus de temps pour l’essentiel.",
-    eyebrow: "Ménage professionnel à Lisbonne",
-    title: { lead: "Votre maison,", highlight: "impeccable." },
+    eyebrow: "Votre maison, impeccable.",
+    title: "Service de ménage de confiance à Lisbonne",
     intro:
-      "Des services de ménage pensés pour simplifier votre quotidien. Pour les maisons, les bureaux et tous les espaces qui méritent d’être à leur meilleur.",
+      "Nettoyage régulier, nettoyage ponctuel, nettoyage urgent. Pour les maisons, les bureaux et tous les espaces qui méritent d’être à leur meilleur.",
     cta: "Demander un devis",
     services: "Voir les services",
     note: "Devis sans engagement, adapté à votre espace.",
