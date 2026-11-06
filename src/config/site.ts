@@ -26,7 +26,10 @@ export const siteConfig = {
     telephone: "", // e.g. "+351 912 345 678"
     email: "", // e.g. "ola@claralimpezas.com"
     /** Public profiles: Google Business Profile, Instagram, Facebook, LinkedIn... */
-    sameAs: [] as string[],
+    sameAs: [
+      // Google Business Profile "Clara Limpezas" (Maps CID; Knowledge Graph id /g/11p2mm3p9t)
+      "https://maps.google.com/?cid=16552928241076728217",
+    ],
     /** Spoken with customers (BCP 47). Matches the "Portuguese & English" promise on the site. */
     languages: ["pt-PT", "en"],
     /** "Lisboa e arredores". */
