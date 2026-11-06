@@ -1,7 +1,14 @@
+/** Google Maps listing (Google Business Profile). */
+const mapUrl = "https://maps.google.com/?cid=16552928241076728217";
+
 export const siteConfig = {
+  /** Short brand used in the interface (logo, footer, title suffix). */
   name: "Clara",
-  /** Longer brand name, used as `alternateName` in structured data so Google can tell "Clara" apart. */
-  alternateName: "Clara Limpezas",
+  /**
+   * The business name exactly as on the Google Business Profile. Used as the business and site
+   * name in structured data and link previews — keep the two identical.
+   */
+  businessName: "Clara Limpezas",
   /** Shown to people (footer, share image). */
   domain: "claralimpezas.com",
   /**
@@ -25,10 +32,28 @@ export const siteConfig = {
   business: {
     telephone: "", // e.g. "+351 912 345 678"
     email: "", // e.g. "ola@claralimpezas.com"
+    /** Same as the Google Business Profile, shown in the contact section. */
+    address: {
+      streetAddress: "Rua Frei Manuel Cardoso 31",
+      postalCode: "1700-023",
+      addressLocality: "Lisboa",
+      addressCountry: "PT",
+    },
+    /** Pin position of the Google Maps listing. */
+    geo: { latitude: 38.750256, longitude: -9.1353831 },
+    /** Keep in sync with the Google Business Profile and `contact.points.hours` in the dictionaries. */
+    openingHours: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "21:00",
+      },
+    ],
+    mapUrl,
     /** Public profiles: Google Business Profile, Instagram, Facebook, LinkedIn... */
     sameAs: [
       // Google Business Profile "Clara Limpezas" (Maps CID; Knowledge Graph id /g/11p2mm3p9t)
-      "https://maps.google.com/?cid=16552928241076728217",
+      mapUrl,
     ],
     /** Spoken with customers (BCP 47). Matches the "Portuguese & English" promise on the site. */
     languages: ["pt-PT", "en"],

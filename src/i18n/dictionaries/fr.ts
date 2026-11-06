@@ -156,7 +156,9 @@ export const fr: Dictionary = {
       types: "Ménage pour particuliers et entreprises",
       frequency: "Services ponctuels ou réguliers",
       area: "Lisbonne et alentours",
+      hours: "Du lundi au vendredi, 8 h – 21 h",
     },
+    mapLink: "Ouvrir dans Google Maps",
   },
   form: {
     title: "Demandez une proposition",

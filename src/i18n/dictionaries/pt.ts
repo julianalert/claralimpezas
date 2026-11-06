@@ -151,7 +151,9 @@ export const pt = {
       types: "Limpezas domésticas e empresariais",
       frequency: "Serviços pontuais ou regulares",
       area: "Lisboa e arredores",
+      hours: "Segunda a sexta, 8h–21h",
     },
+    mapLink: "Abrir no Google Maps",
   },
   form: {
     title: "Peça uma proposta",

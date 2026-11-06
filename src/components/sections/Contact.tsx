@@ -1,10 +1,18 @@
+import { siteConfig } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { serviceIds, type ServiceId } from "@/lib/services";
-import { PinIcon, RepeatIcon, RoofIcon, type IconComponent } from "../icons";
+import {
+  BuildingIcon,
+  ClockIcon,
+  PinIcon,
+  RepeatIcon,
+  RoofIcon,
+  type IconComponent,
+} from "../icons";
 import { Lines } from "../Lines";
 import { QuoteForm } from "../quote/QuoteForm";
 
-type Point = keyof Dictionary["contact"]["points"];
+type Point = Exclude<keyof Dictionary["contact"]["points"], "hours">;
 
 const points: { key: Point; Icon: IconComponent }[] = [
   { key: "types", Icon: RoofIcon },
@@ -22,6 +30,7 @@ export function Contact({ t, form, services }: Props) {
   const serviceNames = Object.fromEntries(
     serviceIds.map((id) => [id, services[id].name]),
   ) as Record<ServiceId, string>;
+  const { address, mapUrl } = siteConfig.business;
 
   return (
     <section className="sect sect-surface" id="contacto">
@@ -41,6 +50,23 @@ export function Contact({ t, form, services }: Props) {
                 <span>{t.points[key]}</span>
               </div>
             ))}
+            {/* Same address and hours as the Google Business Profile (and the structured data) */}
+            <div>
+              <span className="tile">
+                <BuildingIcon />
+              </span>
+              <address>
+                <a href={mapUrl} target="_blank" rel="noopener" title={t.mapLink}>
+                  {address.streetAddress}, {address.postalCode} {address.addressLocality}
+                </a>
+              </address>
+            </div>
+            <div>
+              <span className="tile">
+                <ClockIcon />
+              </span>
+              <span>{t.points.hours}</span>
+            </div>
           </div>
         </div>
         <QuoteForm t={form} serviceNames={serviceNames} />

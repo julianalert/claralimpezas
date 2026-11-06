@@ -150,7 +150,9 @@ export const en: Dictionary = {
       types: "Home and business cleaning",
       frequency: "One-off or regular services",
       area: "Lisbon & nearby",
+      hours: "Monday to Friday, 8am–9pm",
     },
+    mapLink: "Open in Google Maps",
   },
   form: {
     title: "Request a quote",

@@ -18,17 +18,27 @@ export function homeStructuredData(locale: Locale, t: Dictionary) {
     page: `${page}#webpage`,
   };
   const heroImage = absolute("/images/clara-limpezas.jpg");
-  const { telephone, email, sameAs, languages, areaServed } = siteConfig.business;
+  const { telephone, email, sameAs, languages, areaServed, address, geo, openingHours, mapUrl } =
+    siteConfig.business;
 
   const business = {
     "@type": "LocalBusiness",
     "@id": ids.business,
-    name: siteConfig.name,
-    alternateName: siteConfig.alternateName,
+    name: siteConfig.businessName,
+    alternateName: siteConfig.name,
     description: t.meta.description,
     url: site,
     logo: absolute("/icon.svg"),
     image: [heroImage, ...serviceIds.map((id) => absolute(`/images/services/${id}.jpg`))],
+    address: { "@type": "PostalAddress", ...address },
+    geo: { "@type": "GeoCoordinates", ...geo },
+    hasMap: mapUrl,
+    openingHoursSpecification: openingHours.map(({ days, opens, closes }) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: days,
+      opens,
+      closes,
+    })),
     areaServed,
     knowsLanguage: languages,
     ...(telephone && { telephone }),
@@ -55,8 +65,8 @@ export function homeStructuredData(locale: Locale, t: Dictionary) {
     "@type": "WebSite",
     "@id": ids.website,
     url: site,
-    name: siteConfig.name,
-    alternateName: siteConfig.alternateName,
+    name: siteConfig.businessName,
+    alternateName: siteConfig.name,
     inLanguage: locales.map((l) => htmlLang[l]),
     publisher: { "@id": ids.business },
   };
