@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+<title id="title">Clara icon</title>
+<rect width="256" height="256" rx="61" fill="#0E4D43"/>
+<path d="M174 32 C180 59 185 65 212 71 C185 77 180 83 174 110 C168 83 163 77 136 71 C163 65 168 59 174 32Z" fill="#7BC4B1"/>
+<text x="42" y="178" font-family="Inter,Arial,sans-serif" font-size="156" font-weight="800" letter-spacing="-14" fill="white">c</text>
+<circle cx="177" cy="174" r="13" fill="white"/>
+</svg>
