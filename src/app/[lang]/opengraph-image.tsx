@@ -11,10 +11,16 @@ import { availableFonts, brand, loadGoogleFont } from "@/lib/og";
 
 // Share image (og:image / twitter:image), one per language: the hero photo with the
 // translated headline, like the top of the home page. Rendered at build time for each
-// locale and saved as JPEG so it stays well under WhatsApp's ~300 KB preview limit.
-// URLs look like /en/opengraph-image/share — src/proxy.ts leaves them alone.
+// locale. URLs look like /en/opengraph-image/share — src/proxy.ts leaves them alone.
+//
+// Laid out on the standard 1200×630 grid but drawn at 2× (2400×1260): Facebook and others
+// re-compress and resize what they fetch, and on high-density screens a 1200px image gets
+// upscaled. Saved as a baseline JPEG under ~300 KB, the limit for WhatsApp link previews.
 
-const size = { width: 1200, height: 630 };
+/** Render scale: every layout value below is in 1200×630 units and multiplied by this. */
+const k = 2;
+const x = (n: number) => n * k;
+const size = { width: x(1200), height: x(630) };
 const contentType = "image/jpeg";
 
 export async function generateImageMetadata({ params }: { params: { lang: string } }) {
@@ -23,12 +29,12 @@ export async function generateImageMetadata({ params }: { params: { lang: string
   return [{ id: "share", alt: t.meta.ogImageAlt, size, contentType }];
 }
 
-/** Hero photo cropped to 1200×630, as a data URL. */
+/** Hero photo cropped to the image size, as a data URL (near-lossless: it gets encoded again). */
 async function heroPhoto() {
   const file = await readFile(join(process.cwd(), "public/images/clara-limpezas.jpg"));
   const jpeg = await sharp(file)
-    .resize(size.width, size.height, { fit: "cover" })
-    .jpeg({ quality: 90 })
+    .resize(size.width, size.height, { fit: "cover", kernel: "lanczos3" })
+    .jpeg({ quality: 95, chromaSubsampling: "4:4:4" })
     .toBuffer();
   return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
 }
@@ -100,9 +106,9 @@ async function renderShareImage(locale: Locale): Promise<Uint8Array<ArrayBuffer>
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            width: 700,
+            width: x(700),
             height: "100%",
-            padding: "64px 0 64px 72px",
+            padding: `${x(64)}px 0 ${x(64)}px ${x(72)}px`,
           }}
         >
           {/* "clara." wordmark */}
@@ -112,14 +118,14 @@ async function renderShareImage(locale: Locale): Promise<Uint8Array<ArrayBuffer>
               alignItems: "flex-start",
               fontFamily: "Inter",
               fontWeight: 800,
-              fontSize: 54,
-              letterSpacing: -4,
+              fontSize: x(54),
+              letterSpacing: x(-4),
               lineHeight: 1,
               color: brand.pine,
             }}
           >
             clara.
-            <svg width={27} height={27} viewBox="0 0 40 40" style={{ marginTop: -11, marginLeft: -3 }}>
+            <svg width={x(27)} height={x(27)} viewBox="0 0 40 40" style={{ marginTop: x(-11), marginLeft: x(-3) }}>
               <path d={SPARK_PATH} fill={brand.mint} />
             </svg>
           </div>
@@ -129,22 +135,22 @@ async function renderShareImage(locale: Locale): Promise<Uint8Array<ArrayBuffer>
               style={{
                 display: "flex",
                 alignItems: "center",
-                fontSize: 20,
-                letterSpacing: 2.8,
+                fontSize: x(20),
+                letterSpacing: x(2.8),
                 textTransform: "uppercase",
                 color: brand.accent,
               }}
             >
-              <div style={{ width: 40, height: 2, marginRight: 14, background: brand.accent }} />
+              <div style={{ width: x(40), height: x(2), marginRight: x(14), background: brand.accent }} />
               {eyebrow}
             </div>
             <div
               style={{
-                marginTop: 24,
-                maxWidth: 600,
-                fontSize: 66,
+                marginTop: x(24),
+                maxWidth: x(600),
+                fontSize: x(66),
                 lineHeight: 1.1,
-                letterSpacing: -1,
+                letterSpacing: x(-1),
                 color: brand.ink,
               }}
             >
@@ -157,29 +163,29 @@ async function renderShareImage(locale: Locale): Promise<Uint8Array<ArrayBuffer>
               style={{
                 display: "flex",
                 alignItems: "center",
-                padding: "16px 26px",
-                borderRadius: 12,
+                padding: `${x(16)}px ${x(26)}px`,
+                borderRadius: x(12),
                 background: brand.pine,
                 color: "#fff",
-                fontSize: 24,
+                fontSize: x(24),
               }}
             >
               {cta}
               <svg
-                width={24}
-                height={24}
+                width={x(24)}
+                height={x(24)}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#fff"
                 strokeWidth={2.2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                style={{ marginLeft: 12 }}
+                style={{ marginLeft: x(12) }}
               >
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </div>
-            <div style={{ marginLeft: 24, fontSize: 22, color: brand.muted }}>{siteConfig.domain}</div>
+            <div style={{ marginLeft: x(24), fontSize: x(22), color: brand.muted }}>{siteConfig.domain}</div>
           </div>
         </div>
       </div>
@@ -187,8 +193,18 @@ async function renderShareImage(locale: Locale): Promise<Uint8Array<ArrayBuffer>
     { ...size, fonts: availableFonts([archivo, inter]) },
   );
 
+  // Baseline, not progressive: a partly decoded progressive JPEG looks blocky. mozjpeg's
+  // trellis/deringing tricks are kept, but its `mozjpeg: true` preset would force progressive.
+  // 4:2:0 at 2× still keeps colour at 1200×630, so quality goes to detail instead (~250 KB).
   const jpeg = await sharp(Buffer.from(await png.arrayBuffer()))
-    .jpeg({ quality: 82, mozjpeg: true })
+    .jpeg({
+      quality: 85,
+      progressive: false,
+      chromaSubsampling: "4:2:0",
+      trellisQuantisation: true,
+      overshootDeringing: true,
+      quantisationTable: 3,
+    })
     .toBuffer();
   return new Uint8Array(jpeg);
 }
