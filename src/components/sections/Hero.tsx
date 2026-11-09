@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ArrowIcon, CheckIcon } from "../icons";
 
-export function Hero({ t }: { t: Dictionary["hero"] }) {
+export function Hero({ t, quoteHref }: { t: Dictionary["hero"]; quoteHref: string }) {
   return (
     <section className="hero" id="inicio">
       <div className="hero-media">
@@ -14,10 +15,10 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         <h1>{t.title}</h1>
         <p className="hero-intro">{t.intro}</p>
         <div className="hero-ctas">
-          <a className="btn btn-primary" href="#contacto">
+          <Link className="btn btn-primary" href={quoteHref}>
             <span>{t.cta}</span>
             <ArrowIcon />
-          </a>
+          </Link>
           <a className="btn btn-outline" href="#servicos">
             {t.services}
           </a>

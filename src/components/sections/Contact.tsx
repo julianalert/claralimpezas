@@ -1,8 +1,12 @@
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
-import { serviceIds, type ServiceId } from "@/lib/services";
+import { serviceIds } from "@/lib/services";
+import { serviceIcons } from "../funnel/serviceIcons";
 import {
+  ArrowIcon,
   BuildingIcon,
+  CheckIcon,
   ClockIcon,
   PinIcon,
   RepeatIcon,
@@ -10,7 +14,6 @@ import {
   type IconComponent,
 } from "../icons";
 import { Lines } from "../Lines";
-import { QuoteForm } from "../quote/QuoteForm";
 
 type Point = Exclude<keyof Dictionary["contact"]["points"], "hours">;
 
@@ -22,14 +25,13 @@ const points: { key: Point; Icon: IconComponent }[] = [
 
 type Props = {
   t: Dictionary["contact"];
-  form: Dictionary["form"];
+  starter: Dictionary["starter"];
   services: Dictionary["services"]["items"];
+  /** The quote quiz; `?service=<id>` opens it with that service already chosen. */
+  quoteHref: string;
 };
 
-export function Contact({ t, form, services }: Props) {
-  const serviceNames = Object.fromEntries(
-    serviceIds.map((id) => [id, services[id].name]),
-  ) as Record<ServiceId, string>;
+export function Contact({ t, starter, services, quoteHref }: Props) {
   const { address, mapUrl } = siteConfig.business;
 
   return (
@@ -69,7 +71,32 @@ export function Contact({ t, form, services }: Props) {
             </div>
           </div>
         </div>
-        <QuoteForm t={form} serviceNames={serviceNames} />
+        {/* Entry to the quote quiz: one click on a service starts it at the second step */}
+        <div className="form starter">
+          <h3>{starter.title}</h3>
+          <p className="sub">{starter.description}</p>
+          <div className="starter-grid">
+            {serviceIds.map((id) => {
+              const Icon = serviceIcons[id];
+              return (
+                <Link key={id} className="starter-item" href={`${quoteHref}?service=${id}`}>
+                  <span className="tile">
+                    <Icon />
+                  </span>
+                  <span>{services[id].name}</span>
+                </Link>
+              );
+            })}
+          </div>
+          <Link className="btn btn-primary" href={quoteHref}>
+            <span>{starter.cta}</span>
+            <ArrowIcon />
+          </Link>
+          <p className="form-note">
+            <CheckIcon />
+            <span>{starter.note}</span>
+          </p>
+        </div>
       </div>
     </section>
   );

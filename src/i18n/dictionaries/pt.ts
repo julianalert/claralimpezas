@@ -48,7 +48,7 @@ export const pt = {
         title: "Lisboa e arredores",
         text: "Casas, empresas e alojamento local",
       },
-      language: { title: "Português e inglês", text: "Falamos a sua língua" },
+      language: { title: "Português, inglês e francês", text: "Falamos a sua língua" },
     },
   },
   services: {
@@ -170,35 +170,11 @@ export const pt = {
     },
     mapLink: "Abrir no Google Maps",
   },
-  form: {
-    title: "Peça uma proposta",
-    description: "Preencha os campos abaixo para preparar o seu pedido.",
-    labels: {
-      service: "Tipo de limpeza",
-      name: "Nome",
-      phone: "Telemóvel",
-      email: "Email",
-      area: "Zona",
-      message: "Detalhes (opcional)",
-    },
-    placeholders: {
-      service: "Selecionar serviço",
-      name: "O seu nome",
-      phone: "+351 ...",
-      email: "exemplo@email.com",
-      area: "Lisboa, Oeiras...",
-      message: "Tipologia, área aproximada, frequência pretendida...",
-    },
-    submit: "Pedir orçamento",
-    sending: "A enviar...",
-    note: "Os seus dados são usados apenas para responder ao pedido.",
-    status: {
-      invalid: "Preencha os campos obrigatórios para continuar.",
-      demo: "Demonstração: o formulário ainda não está ligado ao envio de pedidos.",
-      success:
-        "Obrigado! Recebemos o seu pedido e entraremos em contacto em breve.",
-      error: "Não foi possível enviar o pedido. Tente novamente.",
-    },
+  starter: {
+    title: "Comece o seu orçamento",
+    description: "Escolha o serviço e responda a algumas perguntas: recebe logo uma estimativa.",
+    cta: "Começar o orçamento",
+    note: "Menos de 2 minutos · Sem compromisso",
   },
   band: {
     label: "Pedir orçamento",

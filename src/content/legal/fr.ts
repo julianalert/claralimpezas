@@ -5,7 +5,7 @@ import { byEmail, type LegalFacts, type LegalTexts } from ".";
 export const legal = (f: LegalFacts): LegalTexts => ({
   privacy: {
     title: "Politique de confidentialité",
-    updated: "Dernière mise à jour : 6 novembre 2026",
+    updated: "Dernière mise à jour : 9 novembre 2026",
     sections: [
       {
         heading: "Responsable du traitement",
@@ -17,7 +17,8 @@ export const legal = (f: LegalFacts): LegalTexts => ({
         heading: "Les données que nous collectons",
         blocks: [
           [
-            "Celles que vous nous envoyez via le formulaire de demande de devis : nom, mobile, e-mail, zone, type de nettoyage et les détails que vous choisissez de partager.",
+            "Celles que vous nous envoyez dans la demande de devis : nom, mobile, e-mail, zone, type de nettoyage, caractéristiques de l’espace, dates souhaitées et les détails que vous choisissez de partager.",
+            "Ce que vous ajoutez dans l’espace personnel de votre demande : messages, photos de l’espace et réponse au devis. Cet espace s’ouvre avec le lien personnel que nous vous envoyons par e-mail ; gardez-le pour vous.",
             "Les données techniques nécessaires au fonctionnement du site (par exemple l’adresse IP et le type de navigateur), traitées par notre hébergeur.",
           ],
           "Nous ne demandons aucune donnée sensible (santé, convictions, etc.). Merci de ne pas en indiquer dans le champ des détails.",
@@ -94,7 +95,7 @@ export const legal = (f: LegalFacts): LegalTexts => ({
       {
         heading: "Devis",
         blocks: [
-          "Les demandes de devis sont gratuites et sans engagement. Chaque proposition précise la prestation, le prix, la date et les conditions applicables, et n’engage les parties qu’une fois acceptée par vous et confirmée par Clara.",
+          "Les demandes de devis sont gratuites et sans engagement. L’estimation affichée sur le site à la fin du questionnaire est indicative et ne constitue pas un devis. Chaque proposition précise la prestation, le prix, la date et les conditions applicables, et n’engage les parties qu’une fois acceptée par vous et confirmée par Clara.",
           "Si les conditions de la proposition acceptée diffèrent de ces conditions générales, celles de la proposition prévalent.",
         ],
       },

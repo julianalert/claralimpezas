@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import {
   ArrowIcon,
@@ -17,7 +18,7 @@ const features: { key: Feature; Icon: IconComponent }[] = [
   { key: "calm", Icon: HeartIcon },
 ];
 
-export function WhyClara({ t }: { t: Dictionary["why"] }) {
+export function WhyClara({ t, quoteHref }: { t: Dictionary["why"]; quoteHref: string }) {
   return (
     <section className="sect sect-surface" id="porque">
       <div className="wrap why-grid">
@@ -29,10 +30,10 @@ export function WhyClara({ t }: { t: Dictionary["why"] }) {
             <Lines lines={t.card.title} />
           </h2>
           <p>{t.card.description}</p>
-          <a className="btn btn-mint" href="#contacto">
+          <Link className="btn btn-mint" href={quoteHref}>
             <span>{t.card.cta}</span>
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
 
         <div className="why-copy">

@@ -1,14 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowIcon, CalendarCheckIcon } from "../icons";
 
 /**
- * Floating button in the bottom-right corner that jumps to the quote form. It steps aside while an
- * element marked `data-hide-floating-cta` (the form, the dark CTA sections, the footer) is on screen,
- * so it never covers the form or another call to action.
+ * Floating button in the bottom-right corner that opens the quote quiz. It steps aside while an
+ * element marked `data-hide-floating-cta` (the contact section, the dark CTA sections, the footer)
+ * is on screen, so it never covers another call to action.
  */
-export function FloatingCta({ label }: { label: string }) {
+export function FloatingCta({ label, href }: { label: string; href: string }) {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
@@ -25,10 +26,10 @@ export function FloatingCta({ label }: { label: string }) {
   }, []);
 
   return (
-    <a className={hidden ? "fab fab-hidden" : "fab"} href="#contacto">
+    <Link className={hidden ? "fab fab-hidden" : "fab"} href={href}>
       <CalendarCheckIcon />
       <span>{label}</span>
       <ArrowIcon />
-    </a>
+    </Link>
   );
 }

@@ -3,7 +3,7 @@ import { byEmail, type LegalFacts, type LegalTexts } from ".";
 export const legal = (f: LegalFacts): LegalTexts => ({
   privacy: {
     title: "Privacy Policy",
-    updated: "Last updated: 6 November 2026",
+    updated: "Last updated: 9 November 2026",
     sections: [
       {
         heading: "Data controller",
@@ -15,7 +15,8 @@ export const legal = (f: LegalFacts): LegalTexts => ({
         heading: "What we collect",
         blocks: [
           [
-            "What you send us in the quote request form: name, mobile number, email, area, type of cleaning and any details you choose to share.",
+            "What you send us in the quote request: name, mobile number, email, area, type of cleaning, details about the space, preferred dates and anything else you choose to share.",
+            "What you add in the personal space of your request: messages, photos of the space and your answer to the quote. That space opens with the personal link we email you; keep it to yourself.",
             "The technical data the site needs to work (for example your IP address and browser type), processed by our hosting provider.",
           ],
           "We do not ask for sensitive data (health, beliefs, etc.). Please do not include any in the details field.",
@@ -92,7 +93,7 @@ export const legal = (f: LegalFacts): LegalTexts => ({
       {
         heading: "Quotes",
         blocks: [
-          "Quote requests are free and carry no obligation. Each quote sets out the service, price, date and applicable conditions, and binds both parties only once you accept it and Clara confirms it.",
+          "Quote requests are free and carry no obligation. The estimate shown on the site at the end of the questionnaire is indicative and is not a quote. Each quote sets out the service, price, date and applicable conditions, and binds both parties only once you accept it and Clara confirms it.",
           "Where the accepted quote differs from these terms, the quote prevails.",
         ],
       },

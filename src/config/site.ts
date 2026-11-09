@@ -15,7 +15,7 @@ export const siteConfig = {
    * Canonical origin for canonical/hreflang/OG/sitemap URLs. Must be the address the site is
    * actually served from: Vercel redirects http:// and the bare domain to https://www.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.claralimpezas.com",
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.claralimpezas.com").replace(/\/+$/, ""),
   complaintsBookUrl: "https://www.livroreclamacoes.pt",
 
   /**
@@ -67,8 +67,8 @@ export const siteConfig = {
       // Google Business Profile "Clara Limpezas" (Maps CID; Knowledge Graph id /g/11p2mm3p9t)
       mapUrl,
     ],
-    /** Spoken with customers (BCP 47). Matches the "Portuguese & English" promise on the site. */
-    languages: ["pt-PT", "en"],
+    /** Spoken with customers (BCP 47). Matches the "Portuguese, English & French" promise on the site. */
+    languages: ["pt-PT", "en", "fr"],
     /** "Lisboa e arredores". */
     areaServed: [
       { "@type": "City", name: "Lisboa" },

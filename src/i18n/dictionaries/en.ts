@@ -48,7 +48,7 @@ export const en: Dictionary = {
         text: "Homes, offices and short-term rentals",
       },
       language: {
-        title: "Portuguese & English",
+        title: "Portuguese, English & French",
         text: "We speak your language",
       },
     },
@@ -169,35 +169,11 @@ export const en: Dictionary = {
     },
     mapLink: "Open in Google Maps",
   },
-  form: {
-    title: "Request a quote",
-    description: "Fill in the fields below to prepare your request.",
-    labels: {
-      service: "Cleaning service",
-      name: "Name",
-      phone: "Mobile",
-      email: "Email",
-      area: "Area",
-      message: "Details (optional)",
-    },
-    placeholders: {
-      service: "Choose a service",
-      name: "Your name",
-      phone: "+351 ...",
-      email: "example@email.com",
-      area: "Lisbon, Oeiras...",
-      message: "Property type, approximate size, preferred frequency...",
-    },
-    submit: "Get a quote",
-    sending: "Sending...",
-    note: "Your details are only used to reply to your request.",
-    status: {
-      invalid: "Please fill in the required fields to continue.",
-      demo: "Demo: this form is not connected to a submission system yet.",
-      success:
-        "Thank you! We’ve received your request and will be in touch soon.",
-      error: "We couldn’t send your request. Please try again.",
-    },
+  starter: {
+    title: "Start your quote",
+    description: "Pick a service and answer a few questions: you get an estimate straight away.",
+    cta: "Start my quote",
+    note: "Less than 2 minutes · No commitment",
   },
   band: {
     label: "Get a quote",

@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ChatIcon, DocumentIcon, SparklesIcon } from "../icons";
 import { WordmarkText } from "../Wordmark";
 
-export function Header({ t }: { t: Dictionary["nav"] }) {
+export function Header({ t, quoteHref }: { t: Dictionary["nav"]; quoteHref: string }) {
   return (
     <header className="nav">
       <div className="wrap nav-row">
@@ -17,9 +18,9 @@ export function Header({ t }: { t: Dictionary["nav"] }) {
           <a href="#contacto">{t.contact}</a>
         </nav>
 
-        <a className="btn btn-mint btn-sm" href="#contacto">
+        <Link className="btn btn-mint btn-sm" href={quoteHref}>
           {t.quote}
-        </a>
+        </Link>
       </div>
 
       {/* Mobile / tablet: link strip under the header (replaces the desktop links) */}

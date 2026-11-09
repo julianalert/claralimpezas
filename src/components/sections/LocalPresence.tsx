@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ArrowIcon, Spark } from "../icons";
 
 /** Dark brand band with the Clara van on a Lisbon street: a local, established company. */
-export function LocalPresence({ t }: { t: Dictionary["local"] }) {
+export function LocalPresence({ t, quoteHref }: { t: Dictionary["local"]; quoteHref: string }) {
   return (
     <section className="sect local" aria-labelledby="local-title" data-hide-floating-cta>
       <div className="wrap local-inner">
@@ -16,10 +17,10 @@ export function LocalPresence({ t }: { t: Dictionary["local"] }) {
             </h2>
             <p className="lead">{t.description}</p>
           </div>
-          <a className="btn btn-mint" href="#contacto">
+          <Link className="btn btn-mint" href={quoteHref}>
             <span>{t.cta}</span>
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
         <div className="local-media">
           <Image

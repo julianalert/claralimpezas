@@ -3,7 +3,7 @@ import { byEmail, type LegalFacts, type LegalTexts } from ".";
 export const legal = (f: LegalFacts): LegalTexts => ({
   privacy: {
     title: "Política de Privacidade",
-    updated: "Última atualização: 6 de novembro de 2026",
+    updated: "Última atualização: 9 de novembro de 2026",
     sections: [
       {
         heading: "Responsável pelo tratamento",
@@ -15,7 +15,8 @@ export const legal = (f: LegalFacts): LegalTexts => ({
         heading: "Dados que recolhemos",
         blocks: [
           [
-            "Os dados que nos envia no formulário de pedido de orçamento: nome, telemóvel, e-mail, zona, tipo de limpeza e os detalhes que decidir partilhar.",
+            "Os dados que nos envia no pedido de orçamento: nome, telemóvel, e-mail, zona, tipo de limpeza, características do espaço, datas preferidas e os detalhes que decidir partilhar.",
+            "O que acrescentar no espaço pessoal do seu pedido: mensagens, fotos do espaço e a resposta à proposta. Esse espaço abre-se com a ligação pessoal que lhe enviamos por e-mail; guarde-a para si.",
             "Os dados técnicos necessários ao funcionamento do site (por exemplo, o endereço IP e o tipo de navegador), tratados pelo nosso fornecedor de alojamento.",
           ],
           "Não pedimos dados sensíveis (saúde, convicções, etc.). Pedimos-lhe que não os inclua no campo de detalhes.",
@@ -92,7 +93,7 @@ export const legal = (f: LegalFacts): LegalTexts => ({
       {
         heading: "Orçamentos",
         blocks: [
-          "Os pedidos de orçamento são gratuitos e sem compromisso. Cada proposta indica o serviço, o preço, a data e as condições aplicáveis, e só vincula as partes depois de aceite por si e confirmada pela Clara.",
+          "Os pedidos de orçamento são gratuitos e sem compromisso. A estimativa apresentada no site no final do questionário é indicativa e não constitui uma proposta. Cada proposta indica o serviço, o preço, a data e as condições aplicáveis, e só vincula as partes depois de aceite por si e confirmada pela Clara.",
           "Se as condições da proposta aceite forem diferentes destes termos, prevalecem as da proposta.",
         ],
       },

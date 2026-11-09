@@ -14,7 +14,7 @@ export const fr: Dictionary = {
     label: "Horaires et disponibilités",
     hours: "Service client : 9 h – 18 h (lundi à vendredi)",
     availability: "Interventions 7 j/7 possibles dès le lendemain",
-    cta: "Demander un devis",
+    cta: "Obtenir un devis",
   },
   nav: {
     home: "Clara, accueil",
@@ -23,7 +23,7 @@ export const fr: Dictionary = {
     why: "Pourquoi Clara ?",
     how: "Comment ça marche",
     contact: "Contact",
-    quote: "Demander un devis",
+    quote: "Obtenir un devis",
     language: "Langue / Language",
   },
   hero: {
@@ -33,7 +33,7 @@ export const fr: Dictionary = {
     title: "Service de ménage de confiance à Lisbonne",
     intro:
       "Nettoyage régulier, nettoyage ponctuel, nettoyage urgent. Pour les maisons, les bureaux et tous les espaces qui méritent d’être à leur meilleur.",
-    cta: "Demander un devis",
+    cta: "Obtenir un devis",
     services: "Voir les services",
     note: "Devis sans engagement, adapté à votre espace.",
   },
@@ -52,7 +52,7 @@ export const fr: Dictionary = {
         title: "Lisbonne et alentours",
         text: "Maisons, bureaux et locations saisonnières",
       },
-      language: { title: "Portugais et anglais", text: "Nous parlons votre langue" },
+      language: { title: "Portugais, anglais et français", text: "Nous parlons votre langue" },
     },
   },
   services: {
@@ -60,8 +60,8 @@ export const fr: Dictionary = {
     title: "Un ménage adapté à votre espace",
     description:
       "Des solutions de nettoyage pour des espaces, des besoins et des rythmes différents.",
-    all: "Demander un devis",
-    link: "Demander un devis",
+    all: "Obtenir un devis",
+    link: "Obtenir un devis",
     items: {
       domestica: {
         name: "Ménage à domicile",
@@ -158,12 +158,12 @@ export const fr: Dictionary = {
     title: "Près de chez vous, partout à Lisbonne.",
     description:
       "Clara est une entreprise de ménage basée à Lisbonne. Nous intervenons dans les maisons, les bureaux et les locations saisonnières de Lisbonne et ses alentours, 7 j/7 et dès le lendemain.",
-    cta: "Demander un devis",
+    cta: "Obtenir un devis",
     imageAlt:
       "La camionnette blanche de Clara, avec son logo et la liste des services, garée dans une rue pavée de Lisbonne près d’un bougainvillier et d’azulejos",
   },
   contact: {
-    eyebrow: "Demander un devis",
+    eyebrow: "Obtenir un devis",
     title: ["Et si tout devenait", "plus clair ?"],
     description:
       "Parlez-nous un peu de votre espace et du type de nettoyage que vous recherchez. C’est la première étape vers une proposition sur mesure.",
@@ -175,41 +175,17 @@ export const fr: Dictionary = {
     },
     mapLink: "Ouvrir dans Google Maps",
   },
-  form: {
-    title: "Demandez une proposition",
-    description: "Remplissez les champs ci-dessous pour préparer votre demande.",
-    labels: {
-      service: "Type de nettoyage",
-      name: "Nom",
-      phone: "Mobile",
-      email: "E-mail",
-      area: "Zone",
-      message: "Détails (facultatif)",
-    },
-    placeholders: {
-      service: "Choisir un service",
-      name: "Votre nom",
-      phone: "+351 ...",
-      email: "exemple@email.com",
-      area: "Lisbonne, Oeiras...",
-      message: "Type de logement, surface approximative, fréquence souhaitée...",
-    },
-    submit: "Demander un devis",
-    sending: "Envoi en cours...",
-    note: "Vos données servent uniquement à répondre à votre demande.",
-    status: {
-      invalid: "Veuillez remplir les champs obligatoires pour continuer.",
-      demo: "Démonstration : le formulaire n’est pas encore relié à un système d’envoi.",
-      success:
-        "Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.",
-      error: "Impossible d’envoyer votre demande. Veuillez réessayer.",
-    },
+  starter: {
+    title: "Commencez votre devis",
+    description: "Choisissez un service et répondez à quelques questions : vous recevez tout de suite une estimation.",
+    cta: "Commencer mon devis",
+    note: "Moins de 2 minutes · Sans engagement",
   },
   band: {
-    label: "Demander un devis",
+    label: "Obtenir un devis",
     eyebrow: "Plus de temps pour l’essentiel",
     title: "Rentrez chez vous et retrouvez tout impeccable.",
-    cta: "Demander un devis",
+    cta: "Obtenir un devis",
   },
   floating: {
     cta: "Planifiez votre intervention",

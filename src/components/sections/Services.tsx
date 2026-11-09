@@ -1,10 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { serviceIds } from "@/lib/services";
 import { ArrowIcon } from "../icons";
-import { ServiceQuoteLink } from "../quote/ServiceQuoteLink";
 
-export function Services({ t }: { t: Dictionary["services"] }) {
+export function Services({ t, quoteHref }: { t: Dictionary["services"]; quoteHref: string }) {
   return (
     <section className="sect sect-sand" id="servicos">
       <div className="wrap">
@@ -14,10 +14,10 @@ export function Services({ t }: { t: Dictionary["services"] }) {
             <h2 className="h2">{t.title}</h2>
             <p className="lead">{t.description}</p>
           </div>
-          <a className="link" href="#contacto">
+          <Link className="link" href={quoteHref}>
             <span>{t.all}</span>
             <ArrowIcon />
-          </a>
+          </Link>
         </div>
 
         <div className="svc-grid">
@@ -38,7 +38,11 @@ export function Services({ t }: { t: Dictionary["services"] }) {
                 <p className="svc-desc">{t.items[id].description}</p>
                 <div className="svc-foot">
                   <div>
-                    <ServiceQuoteLink service={id} label={t.link} />
+                    {/* Opens the quiz with this service already chosen */}
+                    <Link className="link" href={`${quoteHref}?service=${id}`}>
+                      <span>{t.link}</span>
+                      <ArrowIcon />
+                    </Link>
                   </div>
                 </div>
               </div>

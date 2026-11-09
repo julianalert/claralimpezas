@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ArrowIcon, CalendarCheckIcon, ClockIcon } from "../icons";
 
-/** Strip above the header (scrolls away): customer-service hours, availability, link to the quote form. */
-export function TopBar({ t }: { t: Dictionary["topbar"] }) {
+/** Strip above the header (scrolls away): customer-service hours, availability, link to the quote quiz. */
+export function TopBar({ t, quoteHref }: { t: Dictionary["topbar"]; quoteHref: string }) {
   return (
     <aside className="topbar" aria-label={t.label}>
       <div className="wrap topbar-row">
@@ -16,10 +17,10 @@ export function TopBar({ t }: { t: Dictionary["topbar"] }) {
             <span>{t.availability}</span>
           </li>
         </ul>
-        <a className="topbar-cta" href="#contacto">
+        <Link className="topbar-cta" href={quoteHref}>
           <span>{t.cta}</span>
           <ArrowIcon />
-        </a>
+        </Link>
       </div>
     </aside>
   );

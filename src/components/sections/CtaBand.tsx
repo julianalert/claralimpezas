@@ -1,7 +1,8 @@
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ArrowIcon, Spark } from "../icons";
 
-export function CtaBand({ t }: { t: Dictionary["band"] }) {
+export function CtaBand({ t, quoteHref }: { t: Dictionary["band"]; quoteHref: string }) {
   return (
     <section className="band" aria-label={t.label} data-hide-floating-cta>
       <div className="wrap band-row">
@@ -12,10 +13,10 @@ export function CtaBand({ t }: { t: Dictionary["band"] }) {
           <p className="eyebrow">{t.eyebrow}</p>
           <h2>{t.title}</h2>
         </div>
-        <a className="btn btn-mint" href="#contacto">
+        <Link className="btn btn-mint" href={quoteHref}>
           <span>{t.cta}</span>
           <ArrowIcon />
-        </a>
+        </Link>
       </div>
     </section>
   );
