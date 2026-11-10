@@ -130,7 +130,7 @@ export const fr: CrmDictionary = {
     teamOff: "TEAM_EMAIL n’est pas défini : les notifications équipe n’ont pas de destinataire.",
     runNow: "Lancer les e-mails quotidiens maintenant",
     running: "Envoi en cours...",
-    ran: "{n} e-mails envoyés.",
+    ran: "E-mails envoyés : {n}.",
     runHint: "Les relances de devis et les rappels de la veille partent chaque matin. Ce bouton les lance tout de suite.",
     items: {
       confirmation: {

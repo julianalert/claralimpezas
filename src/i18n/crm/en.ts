@@ -129,7 +129,7 @@ export const en = {
     teamOff: "TEAM_EMAIL is not set: team notifications have nowhere to go.",
     runNow: "Run the daily e-mails now",
     running: "Running...",
-    ran: "{n} e-mails sent.",
+    ran: "E-mails sent: {n}.",
     runHint: "Quote follow-ups and day-before reminders run every morning. This button runs them straight away.",
     items: {
       confirmation: {
