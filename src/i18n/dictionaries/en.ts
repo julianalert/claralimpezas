@@ -26,7 +26,7 @@ export const en: Dictionary = {
   },
   hero: {
     imageAlt:
-      "A Clara cleaner wiping down the dining table in a bright Lisbon apartment, with the window open onto the rooftops and the Tagus",
+      "A squeegee wipes the soap off a window, revealing the rooftops of Lisbon and the Tagus",
     eyebrow: "Your home, spotless.",
     title: "Trusted Cleaning Service in Lisbon",
     intro:
@@ -34,6 +34,8 @@ export const en: Dictionary = {
     cta: "Get a quote",
     services: "Explore services",
     note: "No-obligation quote, tailored to your space.",
+    cue: "Scroll to clean",
+    outro: "All clear",
   },
   trust: {
     label: "Why choose Clara",

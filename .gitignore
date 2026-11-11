@@ -42,3 +42,6 @@ next-env.d.ts
 
 # the example file documents the variables and is committed
 !.env.example
+
+# hero clip the frame sequences are built from (scripts/hero-frames/build.mjs)
+/scripts/hero-frames/*.mp4

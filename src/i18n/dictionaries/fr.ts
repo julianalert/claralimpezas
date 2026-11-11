@@ -28,7 +28,7 @@ export const fr: Dictionary = {
   },
   hero: {
     imageAlt:
-      "Une professionnelle de Clara essuie la table de la salle à manger d’un appartement lumineux à Lisbonne, fenêtre ouverte sur les toits et le Tage",
+      "Une raclette retire la mousse d’une vitre et dévoile les toits de Lisbonne et le Tage",
     eyebrow: "Votre maison, impeccable.",
     title: "Service de ménage de confiance à Lisbonne",
     intro:
@@ -36,6 +36,8 @@ export const fr: Dictionary = {
     cta: "Obtenir un devis",
     services: "Voir les services",
     note: "Devis sans engagement, adapté à votre espace.",
+    cue: "Faites défiler pour nettoyer",
+    outro: "Tout est clair",
   },
   trust: {
     label: "Pourquoi choisir Clara",

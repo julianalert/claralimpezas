@@ -27,7 +27,7 @@ export const pt = {
   },
   hero: {
     imageAlt:
-      "Profissional da Clara a limpar a mesa de jantar de um apartamento luminoso em Lisboa, com a janela aberta sobre os telhados e o Tejo",
+      "Um rodo de limpeza retira a espuma de uma janela e revela os telhados de Lisboa e o Tejo",
     eyebrow: "A sua casa, impecável.",
     title: "Serviço de limpeza de confiança em Lisboa",
     intro:
@@ -35,6 +35,8 @@ export const pt = {
     cta: "Pedir orçamento",
     services: "Ver serviços",
     note: "Orçamento sem compromisso, ajustado ao seu espaço.",
+    cue: "Deslize para limpar",
+    outro: "Tudo claro",
   },
   trust: {
     label: "Porquê escolher a Clara",

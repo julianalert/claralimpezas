@@ -26,6 +26,9 @@
   --font-body: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif;
   --font-code: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
   --font-logo: var(--font-inter), Inter, system-ui, sans-serif;
+
+  /* height of the sticky header (with its link strip on small screens); the hero pins under it */
+  --nav-h: 80px;
 }
 
 * { box-sizing: border-box; }
@@ -127,20 +130,84 @@ section { scroll-margin-top: 80px; }
 .navlinks a:hover { color: #fff; }
 .navstrip { display: none; }
 
-/* ---------- hero ---------- */
-.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--ivory); }
-.hero-media { position: absolute; inset: 0; z-index: -2; }
-.hero-media img { object-fit: cover; object-position: 72% 30%; }
-.hero-wash {
-  position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(90deg, rgba(248, 247, 243, 0.94) 0%, rgba(248, 247, 243, 0.86) 30%, rgba(248, 247, 243, 0.25) 57%, rgba(248, 247, 243, 0) 75%);
+/* ---------- hero ----------
+   A soapy window that a squeegee wipes clean as the page scrolls (film: sections/HeroScrub).
+   .hero is taller than the screen and .hero-stage sticks under the header for the whole of it, so
+   the extra height is the scroll distance that plays the film. HeroScrub publishes --p (scroll
+   progress) and --wipe (how far down the glass is clean); the copy and the wash are clipped at
+   that line, i.e. wiped off with the foam. */
+.hero { --p: 0; --wipe: 0; position: relative; height: calc(100svh - var(--nav-h) + 170vh); background: var(--ivory); }
+.hero-stage {
+  position: sticky; top: var(--nav-h); height: calc(100svh - var(--nav-h)); min-height: 480px;
+  isolation: isolate; overflow: hidden; background: #f6efe6;
 }
-.hero-inner { min-height: 560px; display: flex; flex-direction: column; justify-content: center; padding-block: 64px; }
-.hero h1 { max-width: 11em; font-size: 54px; line-height: 1.13; font-weight: 600; color: var(--ink); }
+.hero-poster, .hero-film, .hero-wash { position: absolute; inset: 0; }
+.hero-poster { z-index: -3; }
+.hero-poster img, .hero-film { width: 100%; height: 100%; object-fit: cover; }
+.hero-film { z-index: -2; opacity: 0; }
+.has-film .hero-film { opacity: 1; }
+.hero-wash {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(248, 247, 243, 0.92) 0%, rgba(248, 247, 243, 0.82) 32%, rgba(248, 247, 243, 0.2) 60%, rgba(248, 247, 243, 0) 76%);
+}
+.hero-wash, .hero-inner { clip-path: inset(calc(var(--wipe) * 100%) 0 0 0); }
+.hero-inner { height: 100%; display: flex; flex-direction: column; justify-content: center; padding-block: 48px 72px; }
+.hero.is-clear .hero-inner { visibility: hidden; }
+.hero h1 { max-width: 11em; font-size: clamp(46px, 4.6vw, 68px); line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.hero-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.hero-word > span { display: inline-block; }
 .hero-intro { margin-top: 24px; max-width: 28rem; font-size: 18px; line-height: 1.625; color: var(--muted); }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .hero-note { display: flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 12px; line-height: 16px; font-weight: 500; color: var(--muted); }
 .hero-note svg.i { width: 14px; height: 14px; color: var(--accent); stroke-width: 2.4; }
+
+/* closing line over the clean sky, once the squeegee has left */
+.hero-outro {
+  position: absolute; inset: 0; display: flex; align-items: flex-start; padding-top: clamp(40px, 9vh, 96px);
+  pointer-events: none; opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-outro > span {
+  display: inline-flex; align-items: flex-start; font-size: clamp(48px, 7vw, 104px); line-height: 1;
+  font-weight: 600; letter-spacing: -0.03em; color: var(--pine-deep);
+}
+.hero-outro .spark { width: 0.3em; height: 0.3em; margin: -0.02em 0 0 0.06em; fill: var(--accent); }
+.hero.is-clear .hero-outro { opacity: 1; transform: none; }
+
+/* "scroll to clean" cue, bottom centre; gone as soon as the page moves */
+.hero-cue {
+  position: absolute; left: 50%; bottom: 56px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 8px 14px 0; transform: translateX(-50%); pointer-events: none;
+  font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pine);
+  opacity: calc(1 - var(--p) * 30);
+}
+.hero-cue i { position: relative; width: 1px; height: 36px; overflow: hidden; background: rgba(14, 77, 67, 0.22); }
+.hero-cue i:after { content: ""; position: absolute; inset: 0; background: var(--pine); animation: hero-cue 1.8s cubic-bezier(0.6, 0, 0.2, 1) infinite; }
+@keyframes hero-cue { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+.hero-progress {
+  position: absolute; inset: auto 0 0; height: 3px; background: var(--mint);
+  transform: scaleX(var(--p)); transform-origin: 0 50%;
+}
+
+/* entrance: the title rises word by word, the rest follows */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word > span { animation: hero-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(0.15s + var(--i) * 0.07s); }
+  .hero-in { animation: hero-fade 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero-inner > .hero-in:nth-child(1) { animation-delay: 0.05s; }
+  .hero-inner > .hero-in:nth-child(3) { animation-delay: 0.6s; }
+  .hero-inner > .hero-in:nth-child(4) { animation-delay: 0.72s; }
+  .hero-inner > .hero-in:nth-child(5) { animation-delay: 0.84s; }
+  .hero-cue { animation: hero-cue-in 0.8s 2.4s backwards; }
+}
+@keyframes hero-rise { from { transform: translateY(110%); } }
+@keyframes hero-fade { from { opacity: 0; transform: translateY(14px); } }
+@keyframes hero-cue-in { from { opacity: 0; } }
+
+/* reduced motion: no film and no pin, just the clean window as a still */
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .hero-stage { position: relative; top: auto; }
+  .hero-film, .hero-cue, .hero-progress, .hero-outro { display: none; }
+}
 
 /* ---------- trust bar ---------- */
 .trustbar { background: #fff; border-bottom: 1px solid var(--border); }
@@ -336,9 +403,6 @@ html:has(.legal[open]) { overflow: hidden; }
 .legal-body a:hover { text-decoration-color: currentColor; }
 
 /* ---------- responsive ---------- */
-@media (min-width: 1536px) {
-  .hero-inner { min-height: 640px; }
-}
 @media (max-width: 1080px) {
   .trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-block: 0; }
   .trust-cell { padding: 20px 24px; }
@@ -348,6 +412,7 @@ html:has(.legal[open]) { overflow: hidden; }
   .why-grid, .contact-grid { gap: 40px; }
 }
 @media (max-width: 960px) {
+  :root { --nav-h: 125px; }
   .navlinks { display: none; }
   .navstrip { display: flex; background: var(--ivory); border-bottom: 1px solid var(--border); }
   .navstrip a {
@@ -375,12 +440,14 @@ html:has(.legal[open]) { overflow: hidden; }
   .wm-nav { font-size: 24px; }
   .nav .btn-sm { height: 34px; padding: 0 12px; font-size: 12px; }
 
-  .hero-inner { min-height: 590px; justify-content: flex-start; padding-top: 38px; padding-bottom: 340px; }
-  .hero-media { top: auto; height: 380px; }
-  .hero-media img { object-position: 90% 50%; }
-  .hero-wash { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory) calc(100% - 380px), rgba(248, 247, 243, 0) calc(100% - 230px)); }
+  :root { --nav-h: 113px; }
+  .hero { height: calc(100svh - var(--nav-h) + 130vh); }
+  .hero-inner { justify-content: flex-start; padding-block: 76px 96px; } /* clear of the squeegee resting at the top */
+  .hero-wash { background: linear-gradient(180deg, rgba(248, 247, 243, 0.94) 0%, rgba(248, 247, 243, 0.88) 55%, rgba(248, 247, 243, 0.3) 80%, rgba(248, 247, 243, 0) 100%); }
   .hero h1 { font-size: 38px; line-height: 1.15; }
-  .hero-intro { font-size: 16px; }
+  .hero-intro { margin-top: 16px; font-size: 16px; }
+  .hero-ctas { margin-top: 24px; }
+  .hero-outro { padding-top: 40px; }
 
   .trust-row { grid-template-columns: 1fr; }
   .trust-cell, .trust-cell:nth-child(n) { padding: 16px 0; border-right: 0; }
