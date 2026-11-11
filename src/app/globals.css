@@ -226,21 +226,79 @@ section { scroll-margin-top: 80px; }
 .sect-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; }
 .sect-head > div { max-width: 42rem; }
 
-/* services */
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
-.svc {
-  display: flex; flex-direction: column; overflow: hidden; background: #fff;
-  border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-card);
+/* services: a rail of large photo tiles (sections/Services + ServicesRail).
+   Default (small screens, reduced motion): a carousel to swipe, tiles snapping to the middle.
+   Pinned (large screens, below): .svcs is taller than the screen, .svcs-stage sticks under the
+   header and ServicesRail turns the scroll through the extra height into the rail's travel (--x).
+   --o is each tile's offset from the middle of the screen (-1 → 1); it pans the photo behind
+   its frame and nudges the caption, which is what gives the rail its depth. */
+.svcs {
+  --svc-w: min(84vw, 420px); --svc-gap: 16px;
+  --svc-pad: max(40px, calc((100% - 1280px) / 2 + 40px)); /* lines the first tile up with .wrap */
+  background: var(--sand);
 }
-.svc-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--light-mint); }
-.svc-media img { object-fit: cover; transition: transform 0.5s; }
-.svc:hover .svc-media img { transform: scale(1.05); }
-.svc-body { flex: 1; display: flex; flex-direction: column; padding: 24px; }
-.svc-body .mono { margin-bottom: 12px; }
-.svc h3 { font-size: 20px; line-height: 28px; font-weight: 600; }
-.svc-desc { margin-top: 12px; min-height: 40px; font-size: 14px; line-height: 1.625; color: var(--muted); }
-.svc-foot { margin-top: auto; padding-top: 20px; }
-.svc-foot > div { padding-top: 8px; border-top: 1px solid var(--border); }
+.svcs-stage { padding-block: 80px; }
+.svcs-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; }
+.svcs-head > div:first-child { max-width: 42rem; }
+.svcs-aside { display: flex; align-items: center; gap: 28px; }
+.svcs-count { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.svcs-count b { font-weight: 600; color: var(--pine); }
+.svcs-bar { position: relative; width: 96px; height: 2px; overflow: hidden; border-radius: 2px; background: var(--border); }
+.svcs-bar i { position: absolute; inset: 0; background: var(--pine); transform: scaleX(0); transform-origin: 0 50%; }
+.svcs-track {
+  position: relative; display: flex; gap: var(--svc-gap); margin-top: 32px; padding-inline: var(--svc-pad);
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--svc-pad); scrollbar-width: none;
+}
+.svcs-track::-webkit-scrollbar { display: none; }
+.svc-slide {
+  position: relative; isolation: isolate; flex: none; width: var(--svc-w); height: clamp(380px, 56vh, 520px);
+  display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
+  border-radius: var(--radius); background: var(--pine-deep); color: #fff; box-shadow: var(--shadow-card);
+  scroll-snap-align: center;
+}
+.svc-slide-pan { position: absolute; inset: 0 -9%; z-index: -2; transform: translate3d(calc(var(--o, 0) * -8%), 0, 0); }
+.svc-slide-pan img { object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.svc-slide:hover .svc-slide-pan img { transform: scale(1.04); }
+.svc-slide:after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(5, 47, 41, 0) 38%, rgba(5, 47, 41, 0.6) 70%, rgba(5, 47, 41, 0.92) 100%);
+}
+.svc-slide-body { padding: 28px; transform: translate3d(calc(var(--o, 0) * 36px), 0, 0); }
+.svc-slide .mono { color: var(--mint-soft); }
+.svc-slide h3 { margin-top: 10px; font-size: 26px; line-height: 1.2; font-weight: 600; }
+.svc-slide-desc { margin-top: 8px; max-width: 26rem; font-size: 14px; line-height: 1.625; color: rgba(255, 255, 255, 0.82); }
+.svc-slide .link { margin-top: 12px; color: #fff; }
+.svc-slide .link:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; border-radius: 4px; }
+
+@media (min-width: 861px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
+  .svcs {
+    --svc-w: min(54vw, 780px); --svc-gap: 24px;
+    --svc-pad-vw: max(40px, calc((100vw - 1280px) / 2 + 40px));
+    /* how far the rail has to travel to bring the last tile in, scrolled at 0.6× */
+    --svc-travel: calc(var(--n) * var(--svc-w) + (var(--n) - 1) * var(--svc-gap) + 2 * var(--svc-pad-vw) - 100vw);
+    height: calc(100svh - var(--nav-h) + var(--svc-travel) * 0.6);
+  }
+  .svcs-stage {
+    position: sticky; top: var(--nav-h); height: calc(100svh - var(--nav-h));
+    display: flex; flex-direction: column; padding-block: 44px 48px;
+    overflow: hidden; overflow: clip; /* clip: focus must not scroll the stage sideways */
+  }
+  .svcs-track {
+    flex: 1; min-height: 0; overflow: visible; scroll-snap-type: none;
+    transform: translate3d(var(--x, 0px), 0, 0); will-change: transform;
+  }
+  .svc-slide { height: auto; }
+  .svc-slide-body { padding: 36px; }
+  .svc-slide h3 { font-size: 32px; }
+  .svc-slide-desc { font-size: 16px; }
+}
+/* reduced motion on a large screen: no rail, a plain grid */
+@media (min-width: 861px) and (prefers-reduced-motion: reduce) {
+  .svcs-track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; overflow: visible; }
+  .svc-slide { width: auto; height: 420px; }
+  .svc-slide-pan, .svc-slide-body { transform: none; }
+  .svcs-count { display: none; }
+}
 
 /* why clara */
 .why-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center; }
@@ -424,7 +482,6 @@ html:has(.legal[open]) { overflow: hidden; }
 }
 @media (max-width: 860px) {
   .why-grid, .contact-grid { grid-template-columns: 1fr; }
-  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps-grid { grid-template-columns: 1fr; }
   .contact-copy { position: static; }
 }
@@ -455,7 +512,9 @@ html:has(.legal[open]) { overflow: hidden; }
 
   .sect { padding-block: 56px; }
   .h2 { font-size: 30px; }
-  .svc-grid { grid-template-columns: 1fr; }
+  .svcs-stage { padding-block: 56px; }
+  .svcs { --svc-pad: 24px; }
+  .svcs-aside { width: 100%; justify-content: space-between; }
   .why-card { min-height: 0; padding: 32px 24px; }
   .why-card .spark-big { width: 280px; height: 280px; right: -70px; top: -70px; }
   .why-card .spark-small { width: 44px; height: 44px; right: 28px; top: 28px; }
