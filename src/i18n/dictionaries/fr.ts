@@ -107,6 +107,21 @@ export const fr: Dictionary = {
       },
     },
   },
+  compare: {
+    eyebrow: "Avant / après",
+    title: "Voyez la différence",
+    description: "Faites glisser le curseur pour comparer l’avant et l’après d’un ménage Clara.",
+    tabs: "Exemples",
+    before: "Avant",
+    after: "Après",
+    drag: "Comparer l’avant et l’après",
+    note: "Images d’illustration.",
+    items: {
+      posobra: "Poussière de chantier, éclaboussures de peinture et restes de matériaux : tout est retiré avant votre arrivée.",
+      estofos: "Taches et marques du quotidien traitées en profondeur, tissu par tissu.",
+      domestica: "Plaque, plan de travail et évier dégraissés et brillants.",
+    },
+  },
   why: {
     card: {
       eyebrow: "L’expérience Clara",
@@ -162,7 +177,9 @@ export const fr: Dictionary = {
       "Clara est une entreprise de ménage basée à Lisbonne. Nous intervenons dans les maisons, les bureaux et les locations saisonnières de Lisbonne et ses alentours, 7 j/7 et dès le lendemain.",
     cta: "Obtenir un devis",
     imageAlt:
-      "La camionnette blanche de Clara, avec son logo et la liste des services, garée dans une rue pavée de Lisbonne près d’un bougainvillier et d’azulejos",
+      "La camionnette blanche de Clara, avec son logo et la liste des services",
+    mapLabel: "Carte de Lisbonne avec quelques-uns des quartiers où Clara intervient",
+    river: "Tage",
   },
   contact: {
     eyebrow: "Obtenir un devis",

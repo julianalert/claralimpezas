@@ -102,6 +102,21 @@ export const en: Dictionary = {
       },
     },
   },
+  compare: {
+    eyebrow: "Before and after",
+    title: "See the difference",
+    description: "Drag the handle to compare before and after a Clara clean.",
+    tabs: "Examples",
+    before: "Before",
+    after: "After",
+    drag: "Compare before and after",
+    note: "Images are illustrative.",
+    items: {
+      posobra: "Building dust, paint splashes and leftover materials, all gone before you move in.",
+      estofos: "Stains and everyday marks treated in depth, fabric by fabric.",
+      domestica: "Hob, worktop and sink degreased and gleaming.",
+    },
+  },
   why: {
     card: {
       eyebrow: "The Clara experience",
@@ -156,7 +171,9 @@ export const en: Dictionary = {
       "Clara is a Lisbon-based cleaning company. We come to homes, offices and holiday rentals across Lisbon and nearby, 7 days a week, from the next day.",
     cta: "Get a quote",
     imageAlt:
-      "Clara’s white van, with its logo and list of services, parked on a cobbled Lisbon street next to bougainvillea and azulejo tiles",
+      "Clara’s white van, with its logo and list of services",
+    mapLabel: "Map of Lisbon showing some of the neighbourhoods where Clara works",
+    river: "Tagus",
   },
   contact: {
     eyebrow: "Get a quote",

@@ -2,8 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/pt";
 import { ArrowIcon, Spark } from "../icons";
+import { LisbonMap } from "./LisbonMap";
 
-/** Dark brand band with the Clara van on a Lisbon street: a local, established company. */
+/**
+ * Dark brand band: a local, established company. A map of Lisbon lights up neighbourhood by
+ * neighbourhood, and the Clara van drives in from the right as the section scrolls into view
+ * (`--sp` on `.local-van`, from PageMotion).
+ */
 export function LocalPresence({ t, quoteHref }: { t: Dictionary["local"]; quoteHref: string }) {
   return (
     <section className="sect local" aria-labelledby="local-title" data-hide-floating-cta>
@@ -22,14 +27,18 @@ export function LocalPresence({ t, quoteHref }: { t: Dictionary["local"]; quoteH
             <ArrowIcon />
           </Link>
         </div>
-        <div className="local-media">
-          <Image
-            src="/images/clara-limpezas-lisbon.png"
-            alt={t.imageAlt}
-            fill
-            quality={90}
-            sizes="(max-width: 767px) 100vw, 1200px"
-          />
+        <div className="local-stage">
+          <LisbonMap title={t.mapLabel} river={t.river} />
+          <div className="local-van" data-progress="0.98,0.55">
+            <Image
+              src="/images/clara-van.webp"
+              alt={t.imageAlt}
+              width={1400}
+              height={599}
+              quality={90}
+              sizes="(max-width: 860px) 100vw, 680px"
+            />
+          </div>
         </div>
       </div>
     </section>

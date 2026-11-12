@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { heroFrames } from "@/config/hero-frames";
+import { TWINKLE_EVENT } from "../layout/PageMotion";
 
 const SMOOTHING = 0.16; // share of the remaining distance covered per animation frame
 const INTRO_MS = 1900;
@@ -67,6 +68,8 @@ export function HeroScrub() {
       const inFrame = heroFrames.wipe[Math.round(index * wipeStep)] ?? 0;
       const onStage = inFrame >= 1 ? 1 : inFrame <= 0 ? 0 : Math.min(Math.max((inFrame * h - (h - height) / 2) / height, 0), 1);
       section.style.setProperty("--wipe", onStage.toFixed(4));
+      // The glass has just come clean: the header logo twinkles (PageMotion).
+      if (onStage >= 1 && !section.classList.contains("is-clear")) window.dispatchEvent(new Event(TWINKLE_EVENT));
       section.classList.toggle("is-clear", onStage >= 1);
     };
 

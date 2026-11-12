@@ -1,8 +1,10 @@
 import { FloatingCta } from "@/components/layout/FloatingCta";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { PageMotion } from "@/components/layout/PageMotion";
 import { LegalDialog } from "@/components/legal/LegalDialog";
 import { TopBar } from "@/components/layout/TopBar";
+import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { Contact } from "@/components/sections/Contact";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Hero } from "@/components/sections/Hero";
@@ -37,6 +39,7 @@ export default async function HomePage() {
         <Hero t={t.hero} quoteHref={quoteHref} />
         <TrustBar t={t.trust} />
         <Services t={t.services} quoteHref={quoteHref} />
+        <BeforeAfter t={t.compare} services={t.services.items} link={t.services.link} quoteHref={quoteHref} />
         <WhyClara t={t.why} quoteHref={quoteHref} />
         <HowItWorks t={t.how} />
         <LocalPresence t={t.local} quoteHref={quoteHref} />
@@ -45,6 +48,7 @@ export default async function HomePage() {
       </main>
       <Footer locale={locale} t={t.footer} nav={t.nav} />
       <FloatingCta label={t.floating.cta} href={quoteHref} />
+      <PageMotion />
       <LegalDialog id="privacidade" doc={legal.privacy} t={t.legal} draft={draft} />
       <LegalDialog id="termos" doc={legal.terms} t={t.legal} draft={draft} />
     </>

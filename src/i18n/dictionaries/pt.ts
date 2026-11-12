@@ -102,6 +102,21 @@ export const pt = {
       },
     },
   },
+  compare: {
+    eyebrow: "Antes e depois",
+    title: "Veja a diferença",
+    description: "Arraste o cursor para comparar o antes e o depois de uma limpeza Clara.",
+    tabs: "Exemplos",
+    before: "Antes",
+    after: "Depois",
+    drag: "Comparar o antes e o depois",
+    note: "Imagens ilustrativas.",
+    items: {
+      posobra: "Pó de obra, salpicos de tinta e restos de material: tudo removido antes de entrar.",
+      estofos: "Nódoas e marcas do dia a dia tratadas em profundidade, tecido a tecido.",
+      domestica: "Placa, bancada e lava-loiça desengordurados e a brilhar.",
+    },
+  },
   why: {
     card: {
       eyebrow: "A experiência Clara",
@@ -157,7 +172,9 @@ export const pt = {
       "A Clara é uma empresa de limpezas de Lisboa. Deslocamo-nos a casas, escritórios e alojamentos locais em Lisboa e arredores, 7 dias por semana e a partir do dia seguinte.",
     cta: "Pedir orçamento",
     imageAlt:
-      "Carrinha branca da Clara, com o logótipo e a lista de serviços, estacionada numa rua calcetada de Lisboa junto a uma buganvília e a azulejos",
+      "Carrinha branca da Clara, com o logótipo e a lista de serviços",
+    mapLabel: "Mapa de Lisboa com alguns dos bairros onde a Clara trabalha",
+    river: "Tejo",
   },
   contact: {
     eyebrow: "Pedir orçamento",
